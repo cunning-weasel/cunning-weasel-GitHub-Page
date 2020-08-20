@@ -1,4 +1,30 @@
-
 /* Hate to say it, but I'll need this :( */
 
+/* make sexy */
 
+html,
+body {
+    text-align: center;
+}
+
+#navbar {
+    background: white;
+    text-align: right;
+    position: fixed;
+    padding: 15px;
+}
+
+@media (width: 350px height: 450px) {
+    body {
+        font: 5px;
+    }
+}
+
+#welcome-section {
+    top: 0;
+    background: turquoise;
+
+    /* need to revise */
+    min-height: 55vh;
+    padding-top: 45vh;
+}
