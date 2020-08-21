@@ -6,6 +6,7 @@
 html,
 body {
     text-align: center;
+    align-content: center;
 }
 
 #navbar {
@@ -29,7 +30,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 100px 100px 100px;
-    /* position: center; why doesn't this work? */ 
+    /* position/ align-content: center; why doesn't this work? */ 
 }
 
 
