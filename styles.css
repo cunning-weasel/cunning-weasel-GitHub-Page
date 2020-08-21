@@ -1,6 +1,6 @@
 /* 
-make pretty
-revise elements 
+    make pretty
+    revise elements 
 */
 
 html,
@@ -10,10 +10,9 @@ body {
 
 #navbar {
     background: gray;
-    text-align: right;
+    text-align: center;
     position: fixed;
     padding: 15px;
-
 }
 
 #header {
@@ -25,11 +24,18 @@ body {
     padding-top: 45vh;
 }
 
+    /* added a grid property to the container elems */
+#grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    /* position: center; why doesn't this work? */ 
+}
 
 
 @media (width: 350px height: 450px) {
     body {
         font: 5px;
     }
-
 }
+

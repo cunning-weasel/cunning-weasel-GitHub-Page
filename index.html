@@ -16,22 +16,20 @@
 
 <body>
     <!-- nav bar -->
-        <!-- drag header down as user scrolls -->
-        <!-- adding proper click to dropdown needs js -->
+        <!-- drag header down as user scrolls 
+                    adding proper click functionality needs js, 
+                    can use html/ css for now -->
 
     <nav id="navbar"></nav>
     <ul>
         <li>
-            <a href="#profile-link">what i do</a>
+            <a href="#grid-container">what i do</a>
         </li>
         <li>
             <a href="#projects">projects</a>
         </li>
         <li>
             <a href="contacts">contacts</a>
-        </li>
-        <li>
-            <a href="about">about</a>
         </li>
     </ul>
     </nav>
@@ -45,32 +43,47 @@
 
     <!-- what i do -->
         <!--
-            some kind of column/ grid layout with simple svg graphics
-            and intro
+            some kind of column/ grid layout + replace images with svgs
+            and fix up with css
         -->
-    <div id="what i do">
-        <h2>what i do</h2>
-        <p>how can I help🚀</p>
+
+    <h2>how i can help</h2>
+    <p>what i do</p>
+    <div id="grid-container">
+        <div id="d1">
+            <img src="/img/marketing.jpg" alt="digital marketing and sales" width=250 height=250>
+            <h3>digital marketing</h3>
+            <p>SEO, SEA, SEM, sales automation & revenue management.</p>
+        </div>
+        <div id="d2">
+            <img src="/img/web development.jpg" alt="fullstack web development" width=250 height=250>
+        </div>
+        <div id="d3">
+            <img src="/img/"> 
+        </div>
     </div>
 
-
     <!-- projects -->
-
+        <!-- add div container and link out to projects || embed? try and use flexbox! -->
     <div id="projects">
         <h2>projects</h2>
-
+        
     </div>
 
     <!-- contacts -->
         <!-- add icons -->
-    <section>
-        <p>
-            <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">get in touch</a>
-        </p>
-    </section>
+        <!-- add about etc -->
 
-    <!-- footer? -->
+    <footer id="contacts">
+        <p>let's grow🌱</p>
+        <p>
+            <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">linkedin</a>
+        </p>
+    </footer>
+
 
 </body>
 
 </html>
+
+
