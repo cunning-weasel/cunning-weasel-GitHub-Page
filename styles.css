@@ -1,6 +1,5 @@
-/* Hate to say it, but I'll need this :( */
 
-/* make sexy */
+/* make pretty */
 
 html,
 body {
@@ -20,7 +19,7 @@ body {
     }
 }
 
-#welcome-section {
+#header {
     top: 0;
     background: turquoise;
 
