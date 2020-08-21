@@ -1,5 +1,7 @@
-
-/* make pretty */
+/* 
+make pretty
+revise elements 
+*/
 
 html,
 body {
@@ -7,16 +9,11 @@ body {
 }
 
 #navbar {
-    background: white;
+    background: gray;
     text-align: right;
     position: fixed;
     padding: 15px;
-}
 
-@media (width: 350px height: 450px) {
-    body {
-        font: 5px;
-    }
 }
 
 #header {
@@ -28,3 +25,11 @@ body {
     padding-top: 45vh;
 }
 
+
+
+@media (width: 350px height: 450px) {
+    body {
+        font: 5px;
+    }
+
+}

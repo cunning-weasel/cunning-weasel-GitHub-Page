@@ -6,42 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <!-- 
+        call some random google font?
+        fix short scroll distance
         fix weirdness in general
-
-        fix weird distancing
-        
     -->
 
     <title>Portfolio Page</title>
 </head>
 
 <body>
-<!-- nav bar -->
+    <!-- nav bar -->
+        <!-- drag header down as user scrolls -->
+        <!-- adding proper click to dropdown needs js -->
 
     <nav id="navbar"></nav>
-        <h1><a href="#profile-link">menu</a> 
-        </h1>
+    <ul>
+        <li>
+            <a href="#profile-link">what i do</a>
+        </li>
+        <li>
+            <a href="#projects">projects</a>
+        </li>
+        <li>
+            <a href="contacts">contacts</a>
+        </li>
+        <li>
+            <a href="about">about</a>
+        </li>
+    </ul>
     </nav>
 
-<!-- header -->
+    <!-- header -->
 
     <div id="header">
         <h1>hi, I'm Paul.</h1>
-        <p>a growth hacker.</p>
+        <p>a growth hacker</p>
     </div>
 
-<!-- projects -->
+    <!-- what i do -->
+        <!--
+            some kind of column/ grid layout with simple svg graphics
+            and intro
+        -->
+    <div id="what i do">
+        <h2>what i do</h2>
+        <p>how can I help🚀</p>
+    </div>
 
-    <section id="projects">
-        <div class="project-tile">
-            <a href=#>projects</a> 
-        </div>
-    </section>
 
-<!-- contacts -->
+    <!-- projects -->
 
+    <div id="projects">
+        <h2>projects</h2>
+
+    </div>
+
+    <!-- contacts -->
+        <!-- add icons -->
     <section>
-        <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">get in touch</a>
+        <p>
+            <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">get in touch</a>
+        </p>
     </section>
 
     <!-- footer? -->
@@ -49,5 +74,3 @@
 </body>
 
 </html>
-
-
