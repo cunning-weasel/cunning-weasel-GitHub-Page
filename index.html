@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <!-- 
-        call some random google font?
+        call some random google font/ icons?
         fix short scroll distance
         fix weirdness in general
     -->
@@ -16,22 +16,22 @@
 
 <body>
     <!-- nav bar -->
-        <!-- drag header down as user scrolls 
-        can use html/ css for now to add proper click functionality, later js 
+        <!-- 
+            drag navbar down as user scrolls 
+            can use html/ css for now to add proper click functionality, later js 
         -->            
 
     <nav id="navbar"></nav>
-    <ul>
-        <li>
+    <div>
             <a href="#grid-container">what i do</a>
-        </li>
-        <li>
+    </div>
+        <div>
             <a href="#projects">projects</a>
-        </li>
-        <li>
+        </div>
+        <div>
             <a href="contacts">contacts</a>
-        </li>
-    </ul>
+        </div>
+    </div>
     </nav>
 
     <!-- header -->
@@ -42,30 +42,57 @@
     </div>
 
     <!-- what i do -->
-        <!-- some kind of column/ grid layout + replace images with svgs and fix up with css-->
+        <!-- some kind of column/ grid container/ try to use flexbox smehow! -->
 
     <h2>how i can help</h2>
     <p>what i do</p>
     <div id="grid-container">
         <div id="d1">
-            <img src="/img/marketing.jpg" alt="digital marketing and sales" width=250 height=250>
-            <h3>digital marketing</h3>
-            <p>Organic and paid, sales automation & revenue management.</p>
+            <img src="/img/icons8-omnichannel-100.png" alt="digital marketing and sales">
+            <h3>marketing</h3>
+            <p>seo, sea, sem, sales automation & management.</p>
         </div>
         <div id="d2">
-            <img src="/img/web development.jpg" alt="fullstack web development" width=250 height=250>
+            <img src="/img/icons8-module-96.png" alt="content management system build and design incl. DNS and Hosting">
+            <h3>web management</h3>
+            <p>WordPress build and designs, including DNS, domain, securities, billing & techinical SEO.</p>
         </div>
         <div id="d3">
-            <img src="/img/">
+            <img src="/img/icons8-console-96.png" atl="web development">
+            <h3>web development</h3>
+            <p>full stack web developement with html css, js and react on the frontend, and node, sql and mondoDb on the backend.</p>
         </div>
     </div>
 
-    <!-- projects -->
-        <!-- add div container and link out to projects - embed? try and use flexbox -->
-    <div id="projects">
-        <h2>projects</h2>
+    <!-- add some kind of divider -->
 
-    </div>
+    <!-- projects -->
+        <!-- add some grid/ collage to link to projects - !try and use flexbox! -->
+        <h2>projects</h2>
+        <div id="projects">
+            <div> <!-- don't forget to declare classes for styling later ! -->
+                project img/ thumbnail
+                <p>project title & link</p>
+            </div>
+            <div>
+                project img/ thumbnail
+                <p>project title & link</p>
+            </div>
+            <div>
+                project img/ thumbnail
+                <p>project title link</p>
+            </div>
+            <div>
+                project img/ thumbnail
+                <p>project title link</p>
+            </div>
+            <div>
+                project img/ thumbnail
+                <p>project title link</p>
+            </div>
+        </div>
+
+    <!-- add some kind of bold divider -->
 
     <!-- contacts -->
         <!-- add icons -->
@@ -82,3 +109,4 @@
 </body>
 
 </html>
+
