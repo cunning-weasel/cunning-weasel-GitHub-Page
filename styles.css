@@ -36,7 +36,8 @@ body {
     /* position/ align-content: center; why doesn't this work? */ 
 }
 
-#projects {
+#projects { /* can add h2 tag here to target color but it messes up positioning */
+    /* background: turquoise; */ 
     width: 100%;
     display: flex;
     
