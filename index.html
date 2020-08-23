@@ -24,13 +24,8 @@
     <nav id="navbar"></nav>
     <div>
             <a href="#grid-container">what i do</a>
-    </div>
-        <div>
             <a href="#projects">projects</a>
-        </div>
-        <div>
-            <a href="contacts">contacts</a>
-        </div>
+            <a href="#contacts">contacts</a>
     </div>
     </nav>
 
@@ -60,49 +55,41 @@
         <div id="g2">
             <img src="/img/icons8-console-96.png" atl="web development">
             <h3>web development</h3>
-            <p>full stack web developement with html css, js and react on the frontend, node, express, sql and/ MongoDb on the backend.</p>
+            <p>full stack web development with html css, js and react on the frontend, node, express, sql and/ MongoDb on the backend.</p>
         </div>
     </div>
 
-    <!-- add some kind of divider --> 
+    <hr>
 
     <!-- projects --> 
+    
+    <!-- first version before creating projects.html file -->
         <!-- add some grid/ collage to link to projects -> try and use flexbox ! --> 
-        <h2>projects</h2>
         <div id="projects">
             <div> <!-- don't forget to declare classes for styling later ! --> 
-                project img/ thumbnail
-                <p>project title & link</p>
+                <h2>projects</h2>
+                <p>open-source and transparency is part of my DNA. take a look at some of my projects here</p>
             </div>
             <div>
-                project img/ thumbnail
-                <p>project title & link</p>
+                <img src="/img/dark-graphic.jpg" alt="projects image" width="30%" height="80%">
             </div>
-            <div>
-                project img/ thumbnail
-                <p>project title link</p>
-            </div>
-            <div>
-                src img/ thumbnail
-                <p>project title link</p>
-            </div>
-            <div>
-                project img/ thumbnail
-                <p>project title link</p>
-            </div>
+            <button onclick="document.location='projects.html'" type="button" id="button">all projects</button> <!-- added inline js for click functionality -->
         </div>
 
-    <!-- add some kind of bold divider -->
+    <hr>
 
     <!-- contacts -->
         <!-- add icons -->
-        <!-- add about etc -->
+        <!-- add about, blogs, projects, etc -->
 
     <footer id="contacts">
         <p>let's grow🌱</p>
-        <p>
-            <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">linkedin</a>
-        </p>
+        <div>
+            <button onclick="document.location='projects.html'" type="button" id="button">all projects</button>
+            <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">LinkedIn</a>
+            <a href="" target="_blank">GitHub</a>
+            <a href="mailto:paulbongers22@gmail.com">Email me</a>
+        </div>
     </footer>
 
 
