@@ -40,9 +40,18 @@ body {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    
 }
 
+#projects-sub {
+    width: 100%;
+    display: flex;
+}
+
+#social {
+    background: turquoise;
+    width: 100%;
+    display: flex;
+}
 
 @media (width: 350px height: 450px) {
     body {

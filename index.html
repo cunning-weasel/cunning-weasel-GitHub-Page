@@ -21,7 +21,8 @@
             can use html/ css for now to add proper click functionality, later js 
         -->            
 
-    <nav id="navbar"></nav>
+        <button type="button" id="button"></button>
+        <nav id="navbar"></nav>
     <div>
             <a href="#grid-container">what i do</a>
             <a href="#projects">projects</a>
@@ -61,6 +62,25 @@
 
     <hr>
 
+    <!-- social section -->
+<div id="social">
+    <div>
+        <h2>i'm social</h2>
+    </div>
+    <div>
+        <p>follow me on twitter or linkedin to stay up-to-date</p>
+    </div>
+    <div>
+        <a class="twitter-timeline" data-width="500" data-height="550" data-theme="dark" href="https://twitter.com/P_Bongers?ref_src=twsrc%5Etfw">
+            Tweets by P_Bongers
+        </a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+        </script>
+    </div>
+</div>
+
     <!-- projects --> 
     
     <!-- first version before creating projects.html file -->
@@ -69,11 +89,11 @@
             <div> <!-- don't forget to declare classes for styling later ! --> 
                 <h2>projects</h2>
                 <p>open-source and transparency is part of my DNA. take a look at some of my projects here</p>
+                <button onclick="document.location='projects.html'" type="button" id="button">all projects</button> <!-- added inline js for click functionality -->
             </div>
             <div>
                 <img src="/img/dark-graphic.jpg" alt="projects image" width="30%" height="80%">
             </div>
-            <button onclick="document.location='projects.html'" type="button" id="button">all projects</button> <!-- added inline js for click functionality -->
         </div>
 
     <hr>
@@ -85,7 +105,10 @@
     <footer id="contacts">
         <p>let's grow🌱</p>
         <div>
-            <button onclick="document.location='projects.html'" type="button" id="button">all projects</button>
+        <!-- implemented button in html no js => potentially faster/ more secure? -->
+            <button>
+                <a href="/projects.html">all projects</a>
+            </button>
             <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">LinkedIn</a>
             <a href="" target="_blank">GitHub</a>
             <a href="mailto:paulbongers22@gmail.com">Email me</a>
