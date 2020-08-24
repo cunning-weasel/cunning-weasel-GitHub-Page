@@ -3,5 +3,5 @@
 // ditto for projects navigation
     // update: added inline js for click functionality
 
-// later to to projects i add
+// later add projects i add
 
