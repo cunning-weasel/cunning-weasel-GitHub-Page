@@ -15,12 +15,14 @@ body {
 
 #header {
     background: turquoise;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: auto;
-
-    /* have no diea why i need this */
-    min-height: 55vh;
-    padding-top: 45vh;
+    height: 80vh;
+    /* why vh unit? */
 }
 
     /* added a grid property to the container elems. can use grid or flex */
@@ -46,7 +48,7 @@ body {
 #social {
     background: turquoise;
     width: 100%;
-    display: flex;
+    display: ;
 }
 
 @media (width: 350px height: 450px) {
