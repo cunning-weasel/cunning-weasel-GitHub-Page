@@ -1,8 +1,3 @@
-/* 
-    make pretty
-    revise elements 
-*/
-
 html,
 body {
     text-align: center;
@@ -25,12 +20,10 @@ nav a {
     text-decoration: none;
 }
 
-
 nav a:hover {
     background-color: white;
     color: black;
 }
-
 
 header {
     background: turquoise;
@@ -40,7 +33,7 @@ header {
     align-items: center;
     width: 100%;
     height: 80vh;
-    /* why vh unit? */
+    /* why vh/ viewport height unit? */
 }
 
 /* added a grid property to the container elems. can use grid or flex */
