@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="script" href="script.js">
+    <script src="script.js"></script> <!-- better to leave this at the bottom or top? -->
     <!-- 
-        call some random google font/ icons?
+        call random google font & icons?
         fix weirdness in general
     -->
 
-    <title>website prototype</title>
+    <title>GH-Page prototype</title>
 </head>
 
 <body>
     <!-- nav bar -->
 
     <nav id="navbar">
-        <a href="#grid-container">what i do</a>
+        <a href="#whatIdo">what i do</a>
         <a href="#projects">projects</a>
         <a href="#contacts">contacts</a>
     </nav>
@@ -31,21 +31,22 @@
     </header>
 
     <!-- what i do -->
+    <!-- style some space here -->
     <!-- some kind of column/ grid container -->
     <main>
-        <h2>how i can help</h2>
+        <h2 id="whatIdo">how i can help</h2>
         <p>what i do</p>
         <div id="grid-container">
             <div id="g0">
                 <img src="/img/icons8-omnichannel-100.png" alt="digital marketing and sales">
                 <h3>marketing</h3>
-                <p>seo, sea, sem, sales automation & management.</p>
+                <p>sem (seo & sea), marketing & sales automation.</p>
             </div>
             <div id="g1">
                 <img src="/img/icons8-module-96.png"
                     alt="content management system build and design incl. DNS and Hosting">
                 <h3>web management</h3>
-                <p>WordPress build and designs, DNS & hosting, securities & techinical SEO.</p>
+                <p>WordPress build and designs, DNS & hosting, securities & techinical seo.</p>
             </div>
             <div id="g2">
                 <img src="/img/icons8-console-96.png" atl="web development">
@@ -54,7 +55,7 @@
             </div>
         </div>
 
-    <hr> <!-- replace with css border -->
+    <!-- replace with css border in <hr> style -->
 
     <!-- social -->
     <div id="social">
@@ -99,7 +100,7 @@
 
     <!-- contacts/ footer -->
     <!-- add icons/FontAwesome call -->
-    <!-- add about, blogs, projects, etc -->
+    <!-- blogs/ other sites, projects, etc -->
 
     <footer id="contacts">
         <p>let's grow🌱</p>

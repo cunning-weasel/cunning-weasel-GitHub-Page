@@ -1,20 +1,17 @@
 /* 
-When the user scrolls down, hide the navbar. When the user scrolls up/ down again, show the navbar
-Object needs to tie to onscroll event, with a func that takes the script
-The onscroll event executes js when div elem. tag is being scrolled. place in elem as attri and reference navbar id
+After the user scrolls down, hide the navbar. When the user scrolls up, show the navbar
 */
 
-// prevScrollpos is variable to store previous scroll positon
-let prevScrollpos = window.pageYOffset; 
-
-window.onscroll = function() {
-// currentScrollPos is variable to store current scroll positon
-  let currentScrollPos = window.pageYOffset; // pageYOffset returns the pixels in the current doc scrolled - horiznontally on X axis (pageXOffset)
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
+let prevPos = window.pageYOffset; // declare variable to store scroll positon globally
+window.onscroll = function () {
+  let currentPos = window.pageYOffset; // pageYOffset returns the pixels in the current doc scrolled vertically
+  // window.onscroll = function () {console.log (1) }; confirm event is firing
+  if (prevPos > currentPos) { 
+    // if previous scroll position is more than where the user currently is, return fully visible nav
+    document.getElementById("navbar").style.top = "0";  
   } else {
-    document.getElementById("navbar").style.top = "-50px"; // check why navbar doesn't auto-hide - investigate with overflow?
+    document.getElementById("navbar").style.top = "-50px"; // otherwise remove visibility by 50px
   }
-  prevScrollpos = currentScrollPos;
+  prevPos = currentPos; // set current scroll position to call the funuction again 
 }
 

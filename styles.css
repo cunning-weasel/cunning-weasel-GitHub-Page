@@ -3,17 +3,17 @@ body {
     text-align: center;
 }
 
+/* start nav bar styling */
 nav {
     background-color: turquoise;
-    position: fixed; /* make nav sticky/fixed */
-    top: 0;
+    position: fixed; /* make nav sticky/ fixed */
+    top: 0; /* set nav to top of screen */
     width: 100%;
     transition: top 0.3s; /* transition effect when scrolling down and up */
 }
 
 nav a {
     float: right;
-    display: block;
     color: white;
     text-align: center;
     padding: 15px;
@@ -24,6 +24,7 @@ nav a:hover {
     background-color: white;
     color: black;
 }
+/* end nav bar styling */
 
 header {
     background: turquoise;
@@ -32,8 +33,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80vh;
-    /* why vh/ viewport height unit? */
+    height: 100vh; /* fixed to 100vh as I want header section to occupy whole screen */
 }
 
 /* added a grid property to the container elems. can use grid or flex */
