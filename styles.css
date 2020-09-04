@@ -1,15 +1,19 @@
 html,
 body {
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /* start nav bar styling */
 nav {
     background-color: turquoise;
-    position: fixed; /* make nav sticky/ fixed */
-    top: 0; /* set nav to top of screen */
+    position: fixed;
+    /* make nav sticky/ fixed */
+    top: 0;
+    /* set nav to top of screen */
     width: 100%;
-    transition: top 0.3s; /* transition effect when scrolling down and up */
+    transition: top 0.3s;
+    /* transition effect when scrolling down and up */
 }
 
 nav a {
@@ -24,6 +28,7 @@ nav a:hover {
     background-color: white;
     color: black;
 }
+
 /* end nav bar styling */
 
 header {
@@ -33,40 +38,57 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh; /* fixed to 100vh as I want header section to occupy whole screen */
+    height: 100vh;
+    /* fixed to 100vh as I want header section to occupy whole screen */
+}
+
+#whatIdo {
+    padding-top: 10%;
 }
 
 /* added a grid property to the container elems. can use grid or flex */
 #grid-container {
     width: auto;
     display: flex;
-    grid-template-columns: 100px 100px 100px;
-    /* can use 1fr instead? */
-    /* position/ align-content: center; why doesn't this work? */
+    flex-flow: row;
+    /*grid-template-columns: 100px 100px 100px;*/
+    padding-bottom: 10%;
 }
 
 #projects {
-    /* can add h2 tag here to target color but it messes up positioning */
-    /* background: turquoise; */
+    background: turquoise;
+    padding: 10%;
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
 }
 
 #projects-sub {
     width: 100%;
+    padding: 10%;
     display: flex;
+    flex-flow: column;
 }
 
 #social {
-    background: turquoise;
-    width: 100%;
-    display: ;
+    padding: 10%;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
 }
 
-@media (width: 350px height: 450px) {
+#contacts {
+    background: turquoise;
+    padding: 10%;
+    display: flex;
+    flex-flow: column;
+}
+
+/* set this up for mobile. flex column */
+@media screen and (width: 350px) {
     body {
         font: 5px;
     }
 }
+
 
