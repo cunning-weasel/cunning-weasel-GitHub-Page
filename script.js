@@ -17,7 +17,7 @@ window.onscroll = function () {
 }
 
 // get repos in rss feed/ style?
-// could store all projects, but need to find how to get them?
+// could store all projects, but need to find how to get them - and how to store them
 
 /*
 
