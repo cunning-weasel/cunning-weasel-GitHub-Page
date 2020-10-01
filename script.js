@@ -20,17 +20,19 @@ const api_url = "https://api.github.com/users/cunning-weasel/repos";
 async function getData() {
   const response = await fetch(api_url);
   let data = await response.json();
-  console.log(data[0].git_url, data[0].name, data[0].language);
+  // console.log(data[0].git_url, data[0].name, data[0].language);
+  let output = "";
+  for(let i = 0; i < data.length; i++) {
+    // console.log(data[i].git_url);
+    // let output = "";
+    output += "<div>" + data[i].git_url + "<div>";
   }
+  document.getElementById("projects-sub").innerHTML = output;
+}
 
 getData();
 
   // document.getElementById("projects-sub").textContent = 
-
-  // console.log(data[0].git_url);
-  // console.log(data[0].name);
-  // console.log(data[0].language);
-
 
 // fetch("https://api.github.com/users/cunning-weasel/repos")
 //   .then(response => response.json()) // convert response to json
