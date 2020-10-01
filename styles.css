@@ -46,11 +46,9 @@ header {
     padding-top: 10%;
 }
 
-/* added a grid property to the container elems. can use grid or flex */
 #grid-container {
     display: flex;
     flex-flow: row;
-    /*grid-template-columns: 100px 100px 100px;*/
     padding-bottom: 10%;
 }
 
@@ -72,7 +70,7 @@ header {
 
 #projects-sub {
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     justify-content: space-between;
 }
 
