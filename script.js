@@ -24,8 +24,7 @@ async function getData() {
   let output = "";
   for(let i = 0; i < data.length; i++) {
     // console.log(data[i].git_url);
-    // let output = "";
-    output += "<div>" + data[i].git_url + "<div>";
+    output += "<div>" + data[i].git_url + "<div>" + "<div>" + data[i].name + "<div>" + "<div>" + data[i].language + "<div>";
   }
   document.getElementById("projects-sub").innerHTML = output;
 }
