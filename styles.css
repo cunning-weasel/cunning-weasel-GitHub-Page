@@ -69,9 +69,17 @@ header {
 }
 
 #projects-sub {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    align-content: center;
+    list-style-type: none;
+}
+
+#projects-sub,
+div {
+    margin: 1rem 1rem 1rem 1rem;
+    margin-top: 4rem;
 }
 
 #social {
@@ -92,6 +100,7 @@ header {
 @media screen and (width: 350px) {
     body {
         font: 5px;
+        /* max-width: 20px; */
     }
 }
 
