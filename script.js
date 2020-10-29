@@ -13,37 +13,35 @@ window.onscroll = function () {
   prevPos = currentPos;
 }
 
-// start GH API projects-page integration
-// "git_url", "name", "language" 
+// start GH API call integration
+// => "git_url", "name", "language" 
 
 const api_url = "https://api.github.com/users/cunning-weasel/repos";
 async function getData() {
   const response = await fetch(api_url);
   let data = await response.json();
-  // console.log(data[0].git_url, data[0].name, data[0].language);
   let output = "";
   for(let i = 0; i < data.length; i++) {
     // console.log(data[0].git_url, data[0].name, data[0].language);
     output += "<div>" + "<li>" + data[i].git_url + "</li>" + "<li>" + data[i].name + "</li>" + "<li>" + data[i].language + "</li>" + "</div>";
   }
   document.getElementById("projects-sub").innerHTML = output;
+  // document.getElementById("projects-sub").textContent = output; - safer?
 }
-
 getData();
 
-// metrics logic
+// start data-visualizations to segment lang, location
 // clicking button should activate pop-up that shows simple data-viz of projects
 
 
 
-  // document.getElementById("projects-sub").textContent = output;?
+
 
 // fetch("https://api.github.com/users/cunning-weasel/repos")
 //   .then(response => response.json()) // convert response to json
 //   .then(data => { // json object i need!
 //     document.getElementById("projects-sub").innerHTML = JSON.stringify(data); // textContent instead?
 //   })
-
 
 /*
 const req = new XMLHttpRequest();
@@ -65,13 +63,6 @@ req.onload = function () {
 
 Repos end-point:
 api.github.com/orgs/users/cunning-weasel/repos || https://api.github.com/users/cunning-weasel/repos
-get JSON to send response to GH API. Once data is there, can loop api.jquery.com
-play around, since I need li item, then I can get a link:
-https://api.github.com/users/cunning/repos
-https://api.jquery.com/jQuery.getJSON/ 
-
-
-// start data-visualizations to segment lang, location
 
 */
 
