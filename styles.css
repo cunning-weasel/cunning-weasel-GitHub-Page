@@ -82,6 +82,14 @@ div {
     margin-top: 4rem;
 }
 
+/* defining a class for the bar chart on project-sub page*/
+.bar {
+    width: 12rem;
+    height: 6.3rem;
+    display: inline-block;
+    background-color: turquoise;
+}
+
 #social {
     padding: 10%;
     display: flex;

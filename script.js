@@ -13,25 +13,37 @@ window.onscroll = function () {
   prevPos = currentPos;
 }
 
-// start GH API call integration
+// start GH API call 
 // => "git_url", "name", "language" 
 
 const api_url = "https://api.github.com/users/cunning-weasel/repos";
 async function getData() {
   const response = await fetch(api_url);
   let data = await response.json();
+  // console.log(data[0].git_url, data[0].name, data[0].language);
   let output = "";
   for(let i = 0; i < data.length; i++) {
-    // console.log(data[0].git_url, data[0].name, data[0].language);
     output += "<div>" + "<li>" + data[i].git_url + "</li>" + "<li>" + data[i].name + "</li>" + "<li>" + data[i].language + "</li>" + "</div>";
-  }
+  } // add button to CT to specific repo
   document.getElementById("projects-sub").innerHTML = output;
   // document.getElementById("projects-sub").textContent = output; - safer?
+
+  // start data-viz
+  // segment by lang, commits, pushes, collaborators?
+  // console.log(d3); 
+  console.log(data[0].language, data[1].language);
+  let lang = [data[0].language, data[1].language], comms = [], push = [], collabs = [];
+  
+
+  d3.select("div")
+    .data(data)
+    .enter()
+    .append("div")
+    .attr("class", "bar")
+    .style("height", (d) => d)
+
 }
 getData();
-
-// start data-visualizations to segment lang, location
-// clicking button should activate pop-up that shows simple data-viz of projects
 
 
 
