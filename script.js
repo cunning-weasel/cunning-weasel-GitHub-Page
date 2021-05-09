@@ -14,34 +14,39 @@ window.onscroll = function () {
 };
 
 const api_url = "https://api.github.com/users/cunning-weasel/repos";
+
 async function getData() {
   const response = await fetch(api_url);
   let data = await response.json();
-  // console.log(data[0].git_url, data[0].name, data[0].language);
+  // console.log(data);
   let output = "";
-  for (let i = 0; i < data.length; i++) {
-    data.forEach((item) => {
-      let gitUrl = item.git_url;
-      let projectName = item.name;
-      let projectLang = item.language;
+  data.forEach((item) => {
+    const gitUrl = item.html_url;
+    const projDescr = item.description;
+    const projectName = item.name;
+    const projectLang = item.language;
 
-      output += `<div>
-                    <h1> ${projectName} </h1>
-                  <div>
-                  <p> ${projectLang} </p>
+    output += `<div>
+                    <div>
+                      <h2> ${projectName} </h2>
+                    </div>
+                    <div>
+                      <p>${projectLang}</p>
+                    </div>
+                    <div>
+                    <p>${projDescr}</p>
                   </div>
-                  <div>
-                    <a href="${gitUrl}">GitHub Repo</a>
-                  </div>
+                    <div>
+                      <a href="${gitUrl}">GitHub Repo</a>
+                    </div>
                 </div>`;
-    });
-    document.getElementById("projects-sub").innerHTML = output;
-  }
+  });
+  document.getElementById("projects-sub").innerHTML = output;
 }
 getData();
 
-// add search bar 
-// async function searchBar() {
+// add search bar
+// async function searchData() {
 //   const response = await fetch(api_url);
 //   let data = await response.json();
 //   // console.log(data[0].git_url);
