@@ -1,108 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>cunning-pages🦦</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script> 
-    <title>GH-Page prototype</title>
-</head>
-
-<body>
+  <body>
     <!-- nav bar -->
     <nav id="navbar" class="navDark">
-        <a href="#whatIdo">what i do</a>
-        <a href="#projects">projects</a>
-        <a href="#contacts">contacts</a>
+      <a href="#whatIdo">what i do</a>
+      <a href="#projects">projects</a>
+      <a href="#contacts">contacts</a>
     </nav>
 
     <!-- header -->
     <header>
-        <h1>hi, I'm Paul.</h1>
-        <p>a growth hacker</p>
+      <h1>hi, I'm Paul.</h1>
+      <p>a growth hacker</p>
     </header>
 
     <!-- what i do -->
     <main>
-        <h2 id="whatIdo">how i can help</h2>
-        <p>what i do</p>
-        <div id="grid-container">
-            <div id="g0">
-                <img src="img/icons8-omnichannel-100.png" alt="digital marketing and sales">
-                <h3>marketing</h3>
-                <p>sem (seo & sea), marketing & sales automation.</p>
-            </div>
-            <div id="g1">
-                <img src="img/icons8-module-96.png"
-                    alt="content management system build and design incl. DNS and Hosting">
-                <h3>web management</h3>
-                <p>WordPress build and designs, DNS & hosting, securities & techinical seo.</p>
-            </div>
-            <div id="g2">
-                <img src="img/icons8-console-96.png" atl="web development">
-                <h3>web development</h3>
-                <p>full stack web development Lorem ipsum. Elit quod nihil aspernatur sit similique ipsum.</p>
-            </div>
+      <h2 id="whatIdo">how i can help</h2>
+      <p>what i do</p>
+      <div id="grid-container">
+        <div id="g0">
+          <img
+            src="img/icons8-omnichannel-100.png"
+            alt="digital marketing and sales"
+          />
+          <h3>marketing</h3>
+          <p>sem (organic & paid), marketing & sales automation.</p>
         </div>
+        <div id="g1">
+          <img
+            src="img/icons8-module-96.png"
+            alt="content management system build and design incl. DNS and Hosting"
+          />
+          <h3>web management</h3>
+          <p>
+            CMS build and design, DNS, hosting, security & tech-
+            seo.
+          </p>
+        </div>
+        <div id="g2">
+          <img src="img/icons8-console-96.png" atl="web development" />
+          <h3>software development</h3>
+          <p>full stack (MERN) web development and app development, testing and security.</p>
+        </div>
+      </div>
 
-        <!-- style space -->
-
-        <!-- projects -->
-        <!-- add strechted out image and bring text to front / z-index -->
-        <article id="projects">
-            <div>
-                <h2>projects</h2>
-                <p>open-source contribution is part of my work ethos. Feel free to take a look at some of my
-                    projects here</p>
-                <button class="btn">
-                    <a href="projects.html">all projects</a>
-                </button>
-            </div>
-            <div>
-                <img src="img/ocean.jpg" alt="projects image of ocean. credit: Johny Goerend" id="projects-image">
-            </div>
-        </article>
+      <!-- projects -->
+      <!-- add strechted out image and bring text to front / z-index -->
+      <article id="projects">
+        <div>
+          <h2>projects</h2>
+          <p>
+            open-source contribution is part of my work ethos. Feel free to take
+            a look at some of my projects here
+          </p>
+          <button class="btn">
+            <a href="projects.html">all projects</a>
+          </button>
+        </div>
+        <div>
+          <img
+            src="img/ocean.jpg"
+            alt="projects image of ocean. credit: Johny Goerend"
+            id="projects-image"
+          />
+        </div>
+      </article>
     </main>
 
     <!-- social -->
     <div id="social">
-        <div>
-            <h2>i'm social</h2>
-            <p>follow me on twitter or linkedin to stay up-to-date</p>
-            <!-- what's a nice way of linking to handles? -->
-        </div>
-        <div>
-            <a class="twitter-timeline" data-width="500" data-height="550" data-theme="dark"
-                href="https://twitter.com/P_Bongers?ref_src=twsrc%5Etfw">
-                Tweets by P_Bongers
-            </a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-            </script>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-            </script>
-        </div>
+      <div>
+        <h2>i'm social</h2>
+        <p>follow me on twitter 👈 or linkedin 👇</p>
+        <!-- what's a nice way of linking to handles? -->
+      </div>
+      <div>
+        <a
+          class="twitter-timeline"
+          data-width="500"
+          data-height="650"
+          data-theme="dark"
+          href="https://twitter.com/P_Bongers?ref_src=twsrc%5Etfw"
+        >
+          Tweets by P_Bongers
+        </a>
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
+      </div>
     </div>
 
     <!-- contacts/ footer -->
     <!-- add icons -->
-    <!-- blogs/ other work, projects, etc. add little headings -->
     <footer id="contacts">
-        <div>
+      <div>
         <h2>let's grow🌱</h2>
         <p>get in touch</p>
-    </div>
-        <div>
-            <button class="btn">
-                <a href="projects.html">all projects</a>
-            </button>
-            <a href="https://www.linkedin.com/in/paul-bongers/" target="_blank" id="profile-link">LinkedIn</a>
-            <a href="" target="_blank">GitHub</a>
-            <a href="mailto:paulbongers22@gmail.com">Email me</a>
-        </div>
+      </div>
+      <div>
+        <button class="btn">
+          <a href="projects.html">all projects</a>
+        </button>
+        <a
+          href="https://www.linkedin.com/in/paul-bongers/"
+          target="_blank"
+          id="profile-link"
+          >LinkedIn</a
+        >
+        <a href="" target="_blank">GitHub</a>
+        <a href="mailto:paulbongers22@gmail.com">Email me</a>
+      </div>
     </footer>
-
-</body>
-
+  </body>
 </html>
-

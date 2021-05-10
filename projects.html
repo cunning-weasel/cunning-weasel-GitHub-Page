@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <!-- <script src="https://d3js.org/d3.v5.js"></script> -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>projects</title>
   </head>
 
@@ -16,13 +16,15 @@
       <a href="index.html#contacts">contacts</a>
     </nav>
 
-    <div><h2>projects</h2></div>
+    <div><h2 class="projectsHeader">projects</h2></div>
+    <!-- search bar -->
     <div class="search-bar">
       <input
-        class="search-box"
+        class="searchBox"
         type="text"
         placeholder="Search Projects"
         autocomplete="off"
+        name="search-box"
       />
     </div>
     <div id="projects-sub"></div>

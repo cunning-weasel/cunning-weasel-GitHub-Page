@@ -30,7 +30,7 @@ nav a {
   float: right;
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 1.2%;
   text-decoration: none;
 }
 
@@ -46,18 +46,20 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 
 #whatIdo {
-  padding-top: 2.5%;
+  padding-top: 10%;
 }
 
 #grid-container {
   display: flex;
   flex-flow: row;
-  padding-bottom: 5%;
+  flex-direction:inherit;
+  justify-content: center;
+  padding-bottom: 10%;
+
 }
 
 #projects {
@@ -86,39 +88,26 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: stretch;
-  width: 100%;
+  max-width: 100%;
   margin-left: 15%;
   opacity: 0.75;
 }
 
 #projects-sub {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-around;
-  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   list-style-type: none;
 }
 
 #projects-sub,
 div {
-  margin: 1rem 1rem 1rem 1rem;
-  margin-top: 4rem;
+  margin-top: 0.5rem;
+  padding-bottom: 5%;
 }
 
-.search-bar {
-  border-radius: 1.6rem;
-  border: 0;
-  min-width: 183px;
-  background-color: white;
-}
-
-.search-box {
-  color: white;
-  border: 1px solid turquoise;
-  min-width: 60%;
-  line-height: calc(1.8rem - (1px * 2));
-  background-color: transparent;
-  box-sizing: border-box;
+.projectsHeader {
+  padding-top: 5%;
 }
 
 /* defining a class for the bar chart on project-sub page*/
@@ -130,7 +119,7 @@ div {
 } */
 
 #social {
-  padding: 5%;
+  padding: 10%;
   display: flex;
   flex-flow: row-reverse;
   justify-content: space-between;
@@ -140,12 +129,33 @@ div {
   background: turquoise;
   display: flex;
   flex-flow: column;
+  padding-bottom: 5%;
 }
 
-/* set this up for mobile. flex column */
-@media screen and (width: 350px) {
+/* set image width of all imgs */
+.grid-container img {
+  max-width:100%;
+}
+
+.search-bar {
+  border-radius: 1.6rem;
+  border: 0;
+  min-width: 183px;
+  background-color: white;
+}
+
+.searchBox {
+  color: black;
+  border: 1px solid turquoise;
+  min-width: 50%;
+  line-height: calc(1.8rem - (1px * 2));
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
   body {
-    font: 5px;
-    /* max-width: 20px; */
+    width: 100%;
   }
 }

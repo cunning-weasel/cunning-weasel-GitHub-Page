@@ -1,27 +1,28 @@
 "use strict";
 
+// search input
+const searchInput = document.querySelector(".searchBox");
+
 // pretty navbar
 let prevPos = window.pageYOffset;
-window.onscroll = function () {
+window.onscroll = () => {
   let currentPos = window.pageYOffset;
   // console.log(prevPos + " previous Pos");
   if (prevPos > currentPos) {
     document.getElementById("navbar").style.top = "0";
   } else {
-    document.getElementById("navbar").style.top = "-50px";
+    document.getElementById("navbar").style.top = "-100px";
   }
   prevPos = currentPos;
 };
 
 // click event for darkmode
-const darkLight = () => {
-  const docBod = document.body;
-  docBod.classList.toggle("dark-mode");
-  docBod.classList.toggle("navDark");
-  docBod.classList.toggle("navDark a");
-  docBod.classList.toggle("navDark a:hover");
-};
+// const darkLight = () => {
+//   const docBod = document.body;
+//   docBod.classList.toggle("dark-mode");
+// };
 
+// start api call
 const api_url = "https://api.github.com/users/cunning-weasel/repos";
 
 async function getData() {
@@ -46,7 +47,7 @@ async function getData() {
                     <p>${projDescr}</p>
                   </div>
                     <div>
-                      <a href="${gitUrl}" target="_blank">GitHub Repo</a>
+                      <a href="${gitUrl}" target="_blank">Repository</a>
                     </div>
                 </div>`;
   });
@@ -54,21 +55,14 @@ async function getData() {
 }
 getData();
 
-// search bar
-const searchData = async () => {
-  const response = await fetch(api_url);
-  let data = await response.json();
-  console.log(data);
-  let output = "";
+// search logic
+let searchStr = "";
 
-    data.forEach((item) => {
-      
-//       output += ;
-    });
-//     document.getElementById("projects-sub").innerHTML = output;
-  
-}
-searchData();
+searchInput.addEventListener("keyup", (e) => {
+  searchStr = e.target.value;
+  console.log(searchStr);
+});
+
 
 /*
   // start data-viz
