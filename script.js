@@ -13,6 +13,15 @@ window.onscroll = function () {
   prevPos = currentPos;
 };
 
+// click event for darkmode
+const darkLight = () => {
+  const docBod = document.body;
+  docBod.classList.toggle("dark-mode");
+  docBod.classList.toggle("navDark");
+  docBod.classList.toggle("navDark a");
+  docBod.classList.toggle("navDark a:hover");
+};
+
 const api_url = "https://api.github.com/users/cunning-weasel/repos";
 
 async function getData() {
@@ -37,7 +46,7 @@ async function getData() {
                     <p>${projDescr}</p>
                   </div>
                     <div>
-                      <a href="${gitUrl}">GitHub Repo</a>
+                      <a href="${gitUrl}" target="_blank">GitHub Repo</a>
                     </div>
                 </div>`;
   });
@@ -45,29 +54,21 @@ async function getData() {
 }
 getData();
 
-// add search bar
-// async function searchData() {
-//   const response = await fetch(api_url);
-//   let data = await response.json();
-//   // console.log(data[0].git_url);
-//   let output = "";
-//   for (let i = 0; i < .length; i++) {
-//     .forEach((item) => {
+// search bar
+const searchData = async () => {
+  const response = await fetch(api_url);
+  let data = await response.json();
+  console.log(data);
+  let output = "";
 
-//       output += `<div>
-//                     <h1>${projectName}</h1>
-//                   <div>
-//                   <p>${projectLang}</p>
-//                   </div>
-//                   <div>
-//                     <a href="${gitUrl}">GitHub Repo</a>
-//                   </div>
-//                 </div>`;
-//     });
+    data.forEach((item) => {
+      
+//       output += ;
+    });
 //     document.getElementById("projects-sub").innerHTML = output;
-//   }
-// }
-// searchBar();
+  
+}
+searchData();
 
 /*
   // start data-viz
