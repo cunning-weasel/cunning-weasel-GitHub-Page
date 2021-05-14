@@ -97,7 +97,6 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  list-style-type: none;
 }
 
 #projects-sub,

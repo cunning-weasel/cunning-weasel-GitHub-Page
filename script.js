@@ -1,8 +1,5 @@
 "use strict";
 
-// search input
-const searchInput = document.querySelector(".searchBox");
-
 // pretty navbar
 let prevPos = window.pageYOffset;
 window.onscroll = () => {
@@ -16,59 +13,76 @@ window.onscroll = () => {
   prevPos = currentPos;
 };
 
+// start search input/ api render
+const searchInput = document.querySelector(".searchBox");
+let repoList = document.querySelector("#projects-sub");
+let repos = [];
+
+// search logic
+searchInput.addEventListener("keyup", (e) => {
+  const searchStr = e.target.value.toLowerCase();
+  // console.log(searchStr);
+
+  const filteredRepos = repos.filter((repo) => {
+    return (
+      repo.name.toLowerCase().includes(searchStr) ||
+      repo.description.toLowerCase().includes(searchStr)
+    );
+  });
+  shoRepos(filteredRepos);
+});
+
+// api call
+const pullRepos = async () => {
+  try {
+    const api_url = "https://api.github.com/users/cunning-weasel/repos";
+    const res = await fetch(api_url);
+    repos = await res.json();
+    console.log(repos);
+    shoRepos(repos);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const shoRepos = (repos) => {
+  const htmlString = repos
+    .map((repo) => {
+      return `
+    <div>
+    <div>
+      <h2> ${repo.name} </h2>
+    </div>
+    <div>
+      <p>${repo.language}</p>
+    </div>
+    <div>
+    <p>${repo.description}</p>
+  </div>
+    <div>
+      <a href="${repo.html_url}" target="_blank">Repository</a>
+      <a href="${repo.homepage}" target="_blank">Website</a>
+    </div>
+</div>
+    `;
+    })
+    .join("");
+  repoList.innerHTML = htmlString;
+};
+
+pullRepos();
+
 // click event for darkmode
 // const darkLight = () => {
 //   const docBod = document.body;
 //   docBod.classList.toggle("dark-mode");
 // };
 
-// start api call
-const api_url = "https://api.github.com/users/cunning-weasel/repos";
-
-async function getData() {
-  const response = await fetch(api_url);
-  let data = await response.json();
-  // console.log(data);
-  let output = "";
-  data.forEach((item) => {
-    const gitUrl = item.html_url;
-    const projDescr = item.description;
-    const projectName = item.name;
-    const projectLang = item.language;
-
-    output += `<div>
-                    <div>
-                      <h2> ${projectName} </h2>
-                    </div>
-                    <div>
-                      <p>${projectLang}</p>
-                    </div>
-                    <div>
-                    <p>${projDescr}</p>
-                  </div>
-                    <div>
-                      <a href="${gitUrl}" target="_blank">Repository</a>
-                    </div>
-                </div>`;
-  });
-  document.getElementById("projects-sub").innerHTML = output;
-}
-getData();
-
-// search logic
-let searchStr = "";
-
-searchInput.addEventListener("keyup", (e) => {
-  searchStr = e.target.value;
-  console.log(searchStr);
-});
-
-
 /*
-  // start data-viz
-  // segment by lang, commits, pushes, collaborators?
+  // data-viz
+  // segment by lang, commits, pushes, collaborators, region ?
   // console.log(d3); 
-  console.log(data[0].language, data[1].language);
+  // console.log(data[0].language, data[1].language);
   // let lang = [data[0].language, data[1].language], comms = [], push = [], collabs = [];
 
   d3.select("div")
