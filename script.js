@@ -21,12 +21,12 @@ let repos = [];
 // search logic
 searchInput.addEventListener("keyup", (e) => {
   const searchStr = e.target.value.toLowerCase();
-  // console.log(searchStr);
 
   const filteredRepos = repos.filter((repo) => {
     return (
       repo.name.toLowerCase().includes(searchStr) ||
-      repo.description.toLowerCase().includes(searchStr)
+      // have no idea why this is failing tbh
+      console.log(repo.description.toLowerCase().includes(searchStr))
     );
   });
   shoRepos(filteredRepos);
@@ -38,7 +38,7 @@ const pullRepos = async () => {
     const api_url = "https://api.github.com/users/cunning-weasel/repos";
     const res = await fetch(api_url);
     repos = await res.json();
-    console.log(repos);
+    // console.log(repos);
     shoRepos(repos);
   } catch (err) {
     console.error(err);
