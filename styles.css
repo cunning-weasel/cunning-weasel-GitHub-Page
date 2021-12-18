@@ -59,7 +59,6 @@ header {
   flex-direction:inherit;
   justify-content: center;
   padding-bottom: 10%;
-
 }
 
 #projects {
@@ -157,4 +156,8 @@ div {
   body {
     width: 100%;
   }
+  #grid-container {
+    display: block;
+  }
 }
+
