@@ -24,7 +24,8 @@ searchInput.addEventListener("keyup", (e) => {
 
   const filteredRepos = repos.filter((repo) => {
     return (
-      repo.name.toLowerCase().includes(searchStr) || (repo.language && repo.language.toLowerCase().includes(searchStr)) || 
+      repo.name.toLowerCase().includes(searchStr) ||
+      (repo.language && repo.language.toLowerCase().includes(searchStr)) ||
       // have no idea why this is failing tbh
       (repo.description && repo.description.toLowerCase().includes(searchStr))
     );
@@ -49,8 +50,8 @@ const shoRepos = (repos) => {
   const htmlString = repos
     .map((repo) => {
       return `
-    <div>
-    <div>
+    <div class="card">
+    <div class="card-container">
       <h2> ${repo.name} </h2>
     </div>
     <div>
@@ -93,4 +94,3 @@ pullRepos();
     .style("height", (d) => d)
 }
 */
-
