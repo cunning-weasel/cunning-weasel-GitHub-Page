@@ -13,8 +13,22 @@ window.onscroll = () => {
   prevPos = currentPos;
 };
 
+// darkmode
+const dark_light = () => {
+  const button = document.querySelector(".dark-light-button");
+  const docBod = document.body;
+
+  button.addEventListener("click", (event) => {
+    const mode = docBod.classList.contains("dark-mode") ? "light" : "dark";
+    button.textContent = `${mode} mode`;
+    docBod.classList.toggle("dark-mode");
+    console.log("dark-light triggering master weasel");
+  });
+};
+
 // start search input/ api render
 const searchInput = document.querySelector(".searchBox");
+searchInput.disabled = true; // disable search input
 let repoList = document.querySelector("#projects-sub");
 let repos = [];
 
@@ -26,7 +40,6 @@ searchInput.addEventListener("keyup", (e) => {
     return (
       repo.name.toLowerCase().includes(searchStr) ||
       (repo.language && repo.language.toLowerCase().includes(searchStr)) ||
-      // have no idea why this is failing tbh
       (repo.description && repo.description.toLowerCase().includes(searchStr))
     );
   });
@@ -41,6 +54,7 @@ const pullRepos = async () => {
     repos = await res.json();
     console.log(repos);
     shoRepos(repos);
+    searchInput.disabled = false; // enable search input
   } catch (err) {
     console.error(err);
   }
@@ -72,25 +86,3 @@ const shoRepos = (repos) => {
 };
 
 pullRepos();
-
-// click event for darkmode
-// const darkLight = () => {
-//   const docBod = document.body;
-//   docBod.classList.toggle("dark-mode");
-// };
-
-/*
-  // data-viz
-  // segment by lang, commits, pushes, collaborators, region ?
-  // console.log(d3); 
-  // console.log(data[0].language, data[1].language);
-  // let lang = [data[0].language, data[1].language], comms = [], push = [], collabs = [];
-
-  d3.select("div")
-    .data(data)
-    .enter()
-    .append("div")
-    .attr("class", "bar")
-    .style("height", (d) => d)
-}
-*/
