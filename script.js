@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const htmlContent = await Promise.all(
       articlePaths
         .filter((path) => {
-          const month = path.split("/")[3];
+          const month = path.split("/")[3]; // get month from path
           return monthsToRetrieve.includes(month);
         })
-        .map(async (path) => {
+        .map(async (path, index) => {
           const markdownText = await fetchMarkdownFile(path);
           const { date, title, content } = parseMarkdown(markdownText);
           return `
@@ -55,39 +55,48 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p>${content}</p>
               </div>
               <div>
-                <a href="${path}" class="btn" id="articleLink">Read more</a>
+                <a href="#" class="btn read-more-link" data-article-index="${index}">Read more</a>
               </div>
             </div>
           `;
         })
     );
-
     articleList.innerHTML = htmlContent.join("");
   };
 
   const parseMarkdown = (markdownText) => {
-    const date = "Your Date Logic";
-    const title = "Your Title Logic";
-    const content = "Your Content Logic";
+    const date = "Date Logic";
+    const title = "Title Logic";
+    const content = "Content Logic";
     return { date, title, content };
   };
 
-  const readMoreLinks = articleList.querySelectorAll("#articleLink");
+  const readMoreLinks = document.querySelectorAll(".read-more-link");
   readMoreLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const articleId = e.currentTarget.getAttribute("href").substring(1);
-      console.log("articleId", articleId);
-      showSingleArticle(articleId);
+      const articleIndex = e.currentTarget.dataset.articleIndex;
+      console.log("articleIndex:", articleIndex);
+      showSingleArticle(articleIndex);
     });
   });
 
-  const showSingleArticle = async (articleId) => {
-    const articlePath = `/blog/2023/${articleId}.md`;
+  const showSingleArticle = async (articleIndex) => {
+    const articlePath = articlePaths[articleIndex];
     const markdownText = await fetchMarkdownFile(articlePath);
-    console.log("article paths:", markdownText);
     const htmlContent = marked.parse(markdownText);
-    blogArticleContent.innerHTML = htmlContent;
+
+    // Create a temporary link to navigate to 'blogArticle.html' with a query parameter
+    const tempLink = document.createElement('a');
+    tempLink.href = `blogArticle.html?articleContent=${encodeURIComponent(htmlContent)}`;
+    tempLink.style.display = 'none';
+    document.body.appendChild(tempLink);
+
+    // Trigger a click on the temporary link to navigate
+    tempLink.click();
+
+    // Remove the temporary link
+    document.body.removeChild(tempLink);
   };
 
   searchInput.addEventListener("keyup", (e) => {
