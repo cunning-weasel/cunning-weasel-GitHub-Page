@@ -6,13 +6,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   let blogArticleContent = document.querySelector("#blogArticleContent");
 
   const articlePaths = [
-    "/blog/2023/Sep/Growth.md",
-    "/blog/2023/Jun/Pico.md",
-    "/blog/2023/Aug/Anime.md",
-    // more paths...
+    "/blog/2023/Sep/Growth and stuff.md",
+
+    "/blog/2023/Aug/Anime, tech, and a few other things.md",
+
+    "/blog/2023/Jun/Pico, low level and mama-cia.md",
+    //
   ];
 
-  const monthsToRetrieve = ["Sep", "Jun", "Aug"];
+  const monthsToRetrieve = ["Jun", "Aug", "Sep"];
 
   const fetchMarkdownFile = async (articlePath) => {
     searchInput.disabled = false;
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (resp.ok) {
         const markdownText = await resp.text();
-        console.log("markdownText fetch:", markdownText);
+        // console.log("markdownText fetch:", markdownText);
         return markdownText;
       } else {
         throw new Error("Failed to fetch .md file");
@@ -37,19 +39,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     const htmlContent = await Promise.all(
       articlePaths
         .filter((path) => {
-          const month = path.split("/")[3]; // get month from path
+          const month = path.split("/")[3];
           return monthsToRetrieve.includes(month);
         })
         .map(async (path, index) => {
           const markdownText = await fetchMarkdownFile(path);
-          const { date, title, content } = parseMarkdown(markdownText);
+          console.log("path:", path, index);
+          const month = path.split("/")[3];
+          const title = path.split("/")[4].replace(/\.md$/, '');
+          // const content = path.split("/")[4];
+          const content = "Content Logic for 2 lines?";
+
           return `
             <div class="card">
               <div class="card-container">
                 <div>
-                  <p>${date}</p>
+                  <p>${month}</p>
                 </div>
-                <h2>${title}</h2>
+                <div>
+                  <p>${title}</p>
+                </div>
               </div>
               <div>
                 <p>${content}</p>
@@ -62,13 +71,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         })
     );
     articleList.innerHTML = htmlContent.join("");
-  };
-
-  const parseMarkdown = (markdownText) => {
-    const date = "Date Logic";
-    const title = "Title Logic";
-    const content = "Content Logic";
-    return { date, title, content };
   };
 
   const readMoreLinks = document.querySelectorAll(".read-more-link");
@@ -85,19 +87,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const articlePath = articlePaths[articleIndex];
     const markdownText = await fetchMarkdownFile(articlePath);
     const htmlContent = marked.parse(markdownText);
-
-    // Create a temporary link to navigate to 'blogArticle.html' with a query parameter
-    const tempLink = document.createElement('a');
-    tempLink.href = `blogArticle.html?articleContent=${encodeURIComponent(htmlContent)}`;
-    tempLink.style.display = 'none';
-    document.body.appendChild(tempLink);
-
-    // Trigger a click on the temporary link to navigate
-    tempLink.click();
-
-    // Remove the temporary link
-    document.body.removeChild(tempLink);
+    // Redirect to 'blogArticle.html' and pass the article content as a query parameter
+    window.location.href = `blogArticle.html?articleContent=${encodeURIComponent(htmlContent)}`;
   };
+
 
   searchInput.addEventListener("keyup", (e) => {
     const searchStr = e.target.value.toLowerCase();
@@ -112,7 +105,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // initial render
   showArticles(articlePaths);
 });
-
 
 // needs to be publish date - some static var
 // const currentDate = new Date(Date.now());
