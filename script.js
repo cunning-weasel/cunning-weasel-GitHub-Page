@@ -1,23 +1,22 @@
 "use strict";
-
 document.addEventListener("DOMContentLoaded", async () => {
-  const searchInput = document.querySelector(".searchBox");
+  // const searchInput = document.querySelector(".searchBox");
+  // const articles = []; // add up top
+  // searchInput.disabled = true;
+
   let articleList = document.querySelector("#blogArticles");
   let blogArticleContent = document.querySelector("#blogArticleContent");
 
   const articlePaths = [
-    "/blog/2023/Sep/Growth and stuff.md",
-
-    "/blog/2023/Aug/Anime, tech, and a few other things.md",
-
-    "/blog/2023/Jun/Pico, low level and mama-cia.md",
+    "/blog/2023/Sep/Growth.md",
+    "/blog/2023/Aug/Anime.md",
+    "/blog/2023/Jun/Pico.md",
     //
   ];
 
   const monthsToRetrieve = ["Jun", "Aug", "Sep"];
 
   const fetchMarkdownFile = async (articlePath) => {
-    searchInput.disabled = false;
 
     try {
       const resp = await fetch(articlePath);
@@ -36,6 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const showArticles = async (articlePaths) => {
+
     const htmlContent = await Promise.all(
       articlePaths
         .filter((path) => {
@@ -44,11 +44,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         })
         .map(async (path, index) => {
           const markdownText = await fetchMarkdownFile(path);
-          console.log("path:", path, index);
+          // console.log("path:", path, index);
           const month = path.split("/")[3];
-          const title = path.split("/")[4].replace(/\.md$/, '');
-          // const content = path.split("/")[4];
-          const content = "Content Logic for 2 lines?";
+          // const title = path.split("/")[4].replace(/\.md$/, '');
+          const content = marked.parse(markdownText);
+          const quickContent = content.split(".")[0];
+
+          // console.log("content:", content);
 
           return `
             <div class="card">
@@ -56,15 +58,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div>
                   <p>${month}</p>
                 </div>
-                <div>
-                  <p>${title}</p>
-                </div>
               </div>
               <div>
-                <p>${content}</p>
+                <p>${quickContent}...</p>
               </div>
               <div>
-                <a href="#" class="btn read-more-link" data-article-index="${index}">Read more</a>
+              <a href="blogArticle.html?articlePath=${encodeURIComponent(path)}" class="btn read-more-link">Read more</a>
               </div>
             </div>
           `;
@@ -72,35 +71,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
     articleList.innerHTML = htmlContent.join("");
   };
+  // <a href="blogArticle.html" class="btn read-more-link">Read more</a>
 
-  const readMoreLinks = document.querySelectorAll(".read-more-link");
-  readMoreLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const articleIndex = e.currentTarget.dataset.articleIndex;
-      console.log("articleIndex:", articleIndex);
-      showSingleArticle(articleIndex);
-    });
-  });
+  // articlePath query param
+  const urlParams = new URLSearchParams(window.location.search);
+  const articlePath = urlParams.get("articlePath");
 
-  const showSingleArticle = async (articleIndex) => {
-    const articlePath = articlePaths[articleIndex];
-    const markdownText = await fetchMarkdownFile(articlePath);
+  // Load the content based on the articlePath
+  if (articlePath) {
+    const markdownText = await fetchMarkdownFile(decodeURIComponent(articlePath));
     const htmlContent = marked.parse(markdownText);
-    // Redirect to 'blogArticle.html' and pass the article content as a query parameter
-    window.location.href = `blogArticle.html?articleContent=${encodeURIComponent(htmlContent)}`;
-  };
+    blogArticleContent.innerHTML = htmlContent;
+  }
 
-
-  searchInput.addEventListener("keyup", (e) => {
-    const searchStr = e.target.value.toLowerCase();
-    const filteredArticles = articles.filter((article) => {
-      const title = article.title.toLowerCase();
-      const content = article.content.toLowerCase();
-      return title.includes(searchStr) || content.includes(searchStr);
-    });
-    showArticles(filteredArticles);
-  });
+  // searchInput.disabled = false;
+  // searchInput.addEventListener("keyup", (e) => {
+  //   const searchStr = e.target.value.toLowerCase();
+  //   const filteredArticles = articles.filter((article) => {
+  //     const title = article.title.toLowerCase();
+  //     const content = article.content.toLowerCase();
+  //     return title.includes(searchStr) || content.includes(searchStr);
+  //   });
+  //   showArticles(filteredArticles);
+  // });
 
   // initial render
   showArticles(articlePaths);

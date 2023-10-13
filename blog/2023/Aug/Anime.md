@@ -1,4 +1,4 @@
-# Article title goes here\n\n
+## Anime is a cool thing
 
 Rest of the text and some **bold** sample all about growth and whatever else.
 Will need to work on the shitty else formatting again :)

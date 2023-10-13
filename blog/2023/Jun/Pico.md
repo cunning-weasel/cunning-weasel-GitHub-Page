@@ -2,6 +2,8 @@
 
 ### ESP8266 12E D1 Mini Responsibilities:
 
+A run-down on the tech.
+
 - **Configure as an Access Point (AP):** The ESP8266 should create a local Wi-Fi network.
 - **Implement a WebSockets Server:** Run a WebSockets server to handle game communication between clients.
 - **Manage LAN Connections:** Handle LAN connections and coordinate multiplayer games at a high level.
