@@ -1,26 +1,21 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", async () => {
-  // const searchInput = document.querySelector(".searchBox");
-  // const articles = []; // add up top
-  // searchInput.disabled = true;
-
-  let articleList = document.querySelector("#blogArticles");
-  let blogArticleContent = document.querySelector("#blogArticleContent");
-
+  const articleList = document.querySelector("#blogArticles");
+  const blogArticleContent = document.querySelector("#blogArticleContent");
+  const searchInput = document.querySelector(".searchBox");
+  // let articles = [];
   const articlePaths = [
     "/blog/2023/Sep/Growth.md",
     "/blog/2023/Aug/Anime.md",
     "/blog/2023/Jun/Pico.md",
     //
   ];
-
   const monthsToRetrieve = ["Jun", "Aug", "Sep"];
+  // searchInput.disabled = true;
 
   const fetchMarkdownFile = async (articlePath) => {
-
     try {
       const resp = await fetch(articlePath);
-
       if (resp.ok) {
         const markdownText = await resp.text();
         // console.log("markdownText fetch:", markdownText);
@@ -35,7 +30,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   const showArticles = async (articlePaths) => {
-
     const htmlContent = await Promise.all(
       articlePaths
         .filter((path) => {
@@ -82,19 +76,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     blogArticleContent.innerHTML = htmlContent;
   }
 
-  // searchInput.disabled = false;
-  // searchInput.addEventListener("keyup", (e) => {
-  //   const searchStr = e.target.value.toLowerCase();
-  //   const filteredArticles = articles.filter((article) => {
-  //     const title = article.title.toLowerCase();
-  //     const content = article.content.toLowerCase();
-  //     return title.includes(searchStr) || content.includes(searchStr);
-  //   });
-  //   showArticles(filteredArticles);
-  // });
-
   // initial render
   showArticles(articlePaths);
+
+  // search render
+  searchInput.disabled = false;
+  searchInput.addEventListener("input", (e) => {
+    const searchStr = e.target.value.toLowerCase();
+    const cards = articleList.querySelectorAll('.card');
+    cards.forEach((card) => {
+      const cardContent = card.querySelector('h2').textContent.toLowerCase();
+      if (cardContent.includes(searchStr)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
 });
 
 // needs to be publish date - some static var
