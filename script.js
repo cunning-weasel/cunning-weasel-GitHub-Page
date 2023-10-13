@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           // const title = path.split("/")[4].replace(/\.md$/, '');
           const content = marked.parse(markdownText);
           const quickContent = content.split(".")[0];
-
           // console.log("content:", content);
 
           return `
@@ -71,13 +70,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     );
     articleList.innerHTML = htmlContent.join("");
   };
-  // <a href="blogArticle.html" class="btn read-more-link">Read more</a>
 
   // articlePath query param
   const urlParams = new URLSearchParams(window.location.search);
   const articlePath = urlParams.get("articlePath");
 
-  // Load the content based on the articlePath
+  // load content based on articlePath
   if (articlePath) {
     const markdownText = await fetchMarkdownFile(decodeURIComponent(articlePath));
     const htmlContent = marked.parse(markdownText);
