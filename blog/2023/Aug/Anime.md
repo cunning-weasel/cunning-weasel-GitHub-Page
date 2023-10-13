@@ -14,6 +14,7 @@ They are a bit over-the-top, but if you come into it with a level-head, that mig
 Chill, tech-nerd stuff? Summer Wars. Un-chill, tech-nerd stuff? Ghost in the Shell, Serial Experiments Lain [nerd-bonus]. Time travel and pysi-ops? Steins;Gate. Space adventures with a 90's vibe? Cowboy Bebop. Thriller, mastermind shit? Deathnote. Crazy wtf-did-I-just-watch-it-was-so-crazy-ness? Akira, Devilman Crybaby, Ninja Scroll, Black Lagoon, Berserk. GoT but with Vikings and, just, Japanese? Viking Saga. Chillax, inclusionary stuff? Sailor Moon and Jo-Jo's. 
 
 List goes on. There's things for people who ~really~ like food, awesome 90's dope-vibes-sports anime like Slam Dunk - there's something for everyone. 
-Just do it. 
+
+Just doooo it. 
 
 *N.B I won't address the cartoons thing - it's been covered. I just had to make this note to note that you've noted this. 
