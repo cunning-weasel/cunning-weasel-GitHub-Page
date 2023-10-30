@@ -1,8 +1,6 @@
 ## A typical day on holiday in Samos
 
-......................
-
-Quick note, no, my writing isn't actually this good. This is a short story written by my sister Susan. If you like it, let me know so I can convince her to start a blog!
+Quick note, no, my writing isn’t actually this good - this is a short story written by my sister Susan. She’s the one with the the brains in the family. I’m just the one who steals her stories and posts them online. If you like it, let me know so I can convince her to start a blog. Or maybe I should just start one for her and take all the credit 😜
 
 ......................
 
