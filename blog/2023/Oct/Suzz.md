@@ -1,10 +1,18 @@
 ## A typical day on holiday in Samos
 
+<<<<<<< HEAD
 ....................................
 
 Quick note, no, my writing isn't actually this good. This is a short story written by my sister Susan. If you like it, let me know so I can convince her to start a blog!
 
 ....................................
+=======
+......................
+
+Quick note, no, my writing isn't actually this good. This is a short story written by my sister Susan. If you like it, let me know so I can convince her to start a blog!
+
+......................
+>>>>>>> 9757e7b (fix layout)
 
 
 ‘Ginger!! Mango!! Avocado!!’
