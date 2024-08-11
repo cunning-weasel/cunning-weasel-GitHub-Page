@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const searchInput = document.querySelector(".searchBox");
   // let articles = [];
   const articlePaths = [
-    "/blog/2024/Jul/c.md",
     "/blog/2024/Aug/Intel.md",
+    "/blog/2024/Jul/c.md",
     "/blog/2024/Jun/Old.md",
     "/blog/2024/Mar/Combat.md",
     "/blog/2023/Oct/Suzz.md",
