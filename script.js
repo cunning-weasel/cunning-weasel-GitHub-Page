@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // let articles = [];
   const articlePaths = [
     "/blog/2024/Jul/c.md",
+    "/blog/2024/Aug/Intel.md",
     "/blog/2024/Jun/Old.md",
     "/blog/2024/Mar/Combat.md",
     "/blog/2023/Oct/Suzz.md",
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "/blog/2023/Jun/Pico.md"
   ];
   
-  const monthsToRetrieve = ["Jun", "Aug", "Sep", "Oct", "Mar", "Jun", "Jul"];
+  const monthsToRetrieve = ["Jun", "Aug", "Sep", "Oct", "Mar", "Jun", "Jul", "Aug"];
   // searchInput.disabled = true;
 
   const fetchMarkdownFile = async (articlePath) => {
