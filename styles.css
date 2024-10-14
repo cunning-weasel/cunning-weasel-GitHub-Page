@@ -1,6 +1,5 @@
 body {
-  background-color: #1b2733;
-  /* #1b2733 */
+  background-color: #1C1F24;
   color: darkgray;
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
@@ -33,14 +32,14 @@ a {
 .searchBox {
   margin-bottom: 2em;
   padding: 0.65em 1em;
-  background: rgb(27, 39, 51);
+  background: #1C1F24;
   border: 1px solid rgba(236, 233, 230, 0.15);
   border-radius: 1.5em;
   color: darkgray;
 }
 
 .card {
-  background-color: #1b2733;
+  background-color: #1C1F24;
   color: #ffffff;
   padding: 1.5em;
   border: 1px solid rgba(236, 233, 230, 0.15);
