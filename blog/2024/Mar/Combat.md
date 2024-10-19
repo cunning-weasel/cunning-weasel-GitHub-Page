@@ -34,4 +34,4 @@ Fighters compete to win, are ruthless in their persuit of it, and absoutely do n
 
 I used to think that rugby players, Nfl, Nhl - I thought these were tough sports. And while they are a tough (wom)mans contact sport, it's still one that you *play*. 
 
-As a fighter myself, I can guarantee you - you *don't play* fighting. Give it a try. And if you fancy getting beat-up by a nerd - give me a shout! ;)
+As a fighter myself, I can guarantee you - you *don't play* fighting. Give it a try. The best part about it? Getting through a grueling bjj/ boxing session will most likely be the most difficult thing you've done all day. 
