@@ -1,0 +1,54 @@
+## I've Just Gone Down the Editor Rabbit Hole
+
+And I'm not entirely sure I like what I've become... I've caught a bad case of Emacs.
+
+To be clear, I never thought this would happen to me. I've never been particularly tribal about anything outside of a disdain for any language that isn't C and, in my mind, isn't as low-level as C.
+
+But that's neither here nor there. I haven't really had any issues with VSCode for the time that I've used it. It's not particularly fast, but that's never been an issue for me. A couple of seconds to load up a big project isn't ideal, but whatever—always a good time to roll a cig, refill the mug, or do whatever. It's an Electron app anyway. Certainly faster than the hideous monstrosity that is Visual Studio. Meh.
+
+### Why I Left VSCode
+
+VSCode was great for a certain "pro" workflow I had. Some random frontend and backend that I usually ran in two terminal windows, with a third terminal window for committing, switching branches, SSH-ing into a server, whatever. For me, I'd say this worked fine. 
+
+I had the terminal open on the server tab with logs running, VSCode for code editing, and a browser open on the frontend or Swagger—or both. No issue, worked well across C# and JS, and across the stack. VSCode's type hints tend to be super helpful here, a bit of a wonder especially for dynamic JS/TS. Very workable across a range of stacks.
+
+Things started to go south when I began writing out the platform layers and engine of my game. Things got very dark at this point, folks. VSCode instantly began to spaz out. Type hints often broke, especially when programming against the Win32 APIs in pure C. Everything defaulted to C++. The editor insisted on virtual tables and other C++ garbage. I spent close to four days trying to debug my DirectSound API, simply because VSCode interpreted my C code as C++.
+
+As if that wasn’t bad enough, every keystroke brought up a popup of suggested code completions—all garbage. I won’t even get into the endless popups, extension upgrades, and prompts to add more extensions. It was relentless. I ended up fighting aspects of the code editor I hadn't even noticed before.
+
+### My Workflow and the Breaking Point
+
+I compile all my C code with simple `.bat` and `.sh` files. My workflow became something like this:
+- Run commands in a terminal to compile.
+- Look at compiler errors or other output.
+- Jump into VSCode to find and fix issues.
+
+This slowed down considerably when jumping around long C source code files. Terminal output became harder to read. Sure, I could tweak configs, use Fish, or switch to Zsh for prettier output, but I didn't want extra dependencies. I needed the same terminal, editor, and debugger across Windows, WSL, and Linux for consistency.
+
+### Why Emacs?
+
+After testing a few editors, it came down to learning either Vim/Neovim or Emacs. My requirements were simple:
+1. **Improve my terminal experience.**
+2. **Improve source code editing and navigation.**
+3. **Be as complete as possible, out of the box.**
+
+#### Why Vim/Neovim Fell Short
+The first issue with Vim wasn’t even the learning curve. Neovim almost felt like a must, as vanilla Vim didn’t tick my boxes. But needing additional tooling like `tmux` for terminal management, Neovim, and plugins felt bloated. After all that, the setup still didn’t match what Emacs offered by default.
+
+#### The Killer Features of Emacs
+1. **Terminal Integration:** With `M-x shell` or `M-x eshell`, I could run all my scripts without leaving Emacs. 
+2. **Efficient Motions:** Default keybindings in Emacs are less modal and more intuitive for me compared to Vim. 
+3. **Minimal Configuration:** My `.emacs` file has only 9 lines of config, yet it’s incredibly powerful.
+
+#### Out-of-the-box, slap in the face
+Emacs provides features like `compilation-mode` and `dired` that completely changed my workflow:
+- Run `.bat` or `.sh` scripts directly from Emacs.
+- View compiler errors with syntax highlighting and jump to the corresponding lines instantly.
+- Navigate files seamlessly with `dired`.
+
+With Emacs, I don’t need to open a separate terminal. It’s all available in milliseconds, and it adds value I didn’t know I needed.
+
+#### Performance and Efficiency
+I expected Emacs to be slower than Vim/Neovim but was pleasantly surprised. Both editors feel faster than VSCode, with significantly lower CPU and memory usage. Emacs feels light and responsive, even on my potato laptop.
+
+Switching to Emacs has been an enlightening experience. It solved problems I wasn’t even aware of and streamlined my workflow with minimal setup. While it’s not perfect (debugging across platforms still requires separate tools), it’s a joy to use. I didn’t expect to like it, but here I am—fully converted.

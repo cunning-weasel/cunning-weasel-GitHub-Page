@@ -49,5 +49,6 @@ For transactional use cases like mine, you can create complex and interesting sm
 
 With Stripe (re)adopting crypto payments (albeit only stablecoins, if I understand correctly) and Shopify also embracing Solana (sadly, also via stablecoins), it’s clear that the big players see the potential.
 
-And with price-gouging incumbents like PayPal continuing on their current path, I can’t think of a bigger advertisement for businesses to embrace cryptocurrency payments and blockchain transactions.
+And with price-gouging incumbents like PayPal continuing on their
+current path, I can’t think of a bigger advertisement for businesses to embrace cryptocurrency payments and blockchain transactions.
 
