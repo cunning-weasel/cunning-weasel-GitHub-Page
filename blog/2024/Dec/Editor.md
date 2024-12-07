@@ -40,7 +40,7 @@ It boils down to what I consider the 2 killer features of emacs, across win32, l
 Within a few keystrokes I can run `.bat` or `.sh` build scripts directly from a buffer I quickly brought up, view compiler errors ***with syntax highlighting(!)*** and then just jump to the corresponding lines instantly by navigating there with the keys. Add to that quick nav of files, buffers manipulation, multiple windows. Emacs, rather than replace the traditional terminal workflow, organically enhances it in ways that just make sense.
 Although I still tend to use the eshell for git ops, magit looks like it'll be the third killer feature of emacs, once I learn and get it into my workflow. But again, it's the way emacs does it that's just too damn swaggy.
 
-I've seen the (e)light, and, speaking of which, have found emacs to be ***blazingly*** fast across windows wsl2 and linux. I had heard faint whispers of the editor being slow prior to using it myself, but never actually expected it to be as snappy as it is - although there should be no surpise there given emacs itself at it's core runs on a c engine. Might also be my lightweight config - which I shall share now without fruther ado (`gruber-dark` theme incase you're interested btw):
+I've seen the (e)light, and, speaking of which, have found emacs to be ***blazingly*** fast across windows, wsl2 and linux. I had heard faint whispers of the editor being slow prior to using it myself, but never actually expected it to be as snappy as it is - although there should be no surpise there given at it's core is a c engine. Might also be my lightweight config - which I shall share now without fruther ado (`gruber-dark` theme incase you're interested btw):
 
 ```
 (tool-bar-mode 0)
