@@ -1,57 +1,77 @@
 ## I've Just Gone Down the Editor Rabbit Hole
 
-And I'm not entirely sure I like what I've become... I've caught a bad case of Emacs.
+And I'm not entirely sure I like what I've become... I've caught a bad case of emacs.
 
-I haven't really had any issues with VSCode for the time that I've used it. It's not particularly fast, but that's never been an issue for me. A couple of seconds to load up a big project isn't ideal, but it's whatever right? Always a good time to roll a cig, refill the mug, or do whatever. It's an Electron app anyway. Certainly faster than the hideous monstrosity that is Visual Studio, but meh.
+I haven't really had any issues with vscode for the time that I've used it. It's not particularly fast, but that's never been an issue for me. A couple of seconds to load up a big project isn't ideal, but it's whatever right? Always a good time to roll a cig, refill the mug, or do whatever. It's an electron app anyway. Certainly faster than the hideous monstrosity that is Visual Studio, but meh.
 
-So I mean look. VSCode was ok for the workflow I had. Some random frontend and backend that I usually ran in two terminal windows, with a third terminal window for committing, switching branches, SSH-ing into a server, whatever. 
+So I mean look. vscode was ok for the workflow I had. Some random frontend and backend that I usually ran in two terminal windows, with a third terminal window for committing, switching branches, ssh-ing into a server, whatever. 
 
-I'd have the terminal open on the server tab with logs running, VSCode for code editing, and a browser open on the frontend or backend swagger docs or both. No issue, worked well across C# and JS and across pretty much any stack. VSCode's LSP, although annoying, works great in this use-case too.
+I'd have the terminal open on the server tab with logs running, vscode for code editing, and a browser open on the frontend or backend swagger docs or both. No issue, worked well across c# and js and across pretty much any stack.vscode's LSP, although annoying, works great in this use-case too.
 
-I noticed things start to go south once I began writing out the platform layers and engine of my game. Things got very dark at this point, folks. VSCode started to slow down a great deal, with it's various LSPs confusing the hell out of it.
-Type hints broke left and right when programming against the win32 apis in pure c, let alone against the linux apis. There's a nasty tendancy for everything to default to C++. The editor insists on things like going through virtual tables and other C++ garbage I don't care to understand.
+I noticed things start to go south once I started to get deep in writing out the platform layers and engine of my game. Things got very dark at this point, folks. vscode started to slow down a great deal, with it's various LSPs confusing the hell out of it.
+Type hints broke left and right when programming against the win32 apis in pure c, let alone against the linux apis. There's a nasty tendancy for everything to default to c++ type-hints and suggestions. The editor insists on things like going through virtual tables and other c++ garbage I don't care to use nor understand.
 
-I spent close to four days trying to debug an issue with init on the DirectSound api, only to find VSCode kept incorectly interpreting my code as C++. It was one of the few times the LSP features of vscode became utterly and completly useless to me. Up to today, I still can't get vscode to recognise that I'm compiling a single translation unit or two. It just doesn't get it. Red squiggly lines everywhere that can only be solved by adding yet another config .json to silence said errors. I have no idea why, for instance, that on a linux environment, with all necessary header files, that params for `mmap` just aren't recognized.
+I spent close to four days trying to debug an issue with init on the DirectSound api, only to find vscode kept incorectly interpreting my code as c++. It was one of the few times the LSP features of vscode became utterly and completly useless to me. Up to today, I still can't get vscode to recognise that I'm compiling a single translation unit or two. It just doesn't get it. Red squiggly lines everywhere that can only be solved by adding yet another config .json to silence said errors. I have no idea why, for instance, that on a linux environment, with all necessary header files, that params for `mmap` just aren't recognized.
 
-As if that wasn’t bad enough, it feels like every shitty-ass keystroke triggers a popup of suggested code completions — which as you've undoubtably guessed by now - all garbage. I won’t even get into the endless prompts for extension-upgrades, prompts to add even more extensions, update prompts, prompts to tell you said updates failed, you name it. It's madness bruv.
+As if that wasn’t bad enough, it feels like every shitty-ass keystroke triggers a popup of suggested code completions — which as you've undoubtably guessed by now - all garbage. I won’t even get into the endless prompts for extension-upgrades, prompts to add even more extensions, update prompts, prompts to tell you said updates failed, you name it. Madness bruv.
 
-As you may know, I'm a simple man. I compile all my c code with a simple `build.bat` or `build.sh` script. It keeps shit studpidly simple and fast, and so my resultant workflow looks something like:
-
-- Execute build script to compile.
-- Check compiler output/errors.
-- Jump into vscode to find and fix errors.
-- Re-compile and run with debugger.
+I'm a simple man. I compile all my c code with a simple `build.bat` or `build.sh` script. It keeps shit studpidly simple and fast, and so my resultant workflow looks something like: execute build script to compile, check compiler output/errors, jump into vscode to find and fix errors, then
+re-compile and run with debugger.
 
 This workflow slowed down considerably when jumping around source code files. I often found myself quickly editng source code in micro or nano - as at least this way I could quickly bring up some code, edit, and hop out back to terminal.
 
-But this terminal output also started to become harder to read. Sure, I could tweak configs, use Fish, or switch to Zsh for prettier output, but I didn't want extra dependencies. Outside of aesthetics, these kinds of teaks simply didn't bring any real value to my workflow. If anything, it just means more shit that needs to work across platforms and a bigger surface area of failure.
+But this terminal output also started to become harder to read. Sure, I could tweak configs, use Fish, or switch to Zsh for prettier output, but I didn't want extra dependencies. Outside of aesthetics, these kinds of teaks simply didn't bring any real value to my workflow. If anything, it just means more shit that needs to work across platforms and a bigger surface area of said shit to hit the fan. 
 
 Based on the above, my requirements start to look very simple. I ended up on one of either neovim or emacs. My pain points needed to be solved as directly and efficiently as possible:
 
-1. **Improve my terminal workflow.**
-2. **Improve source code editing and navigation.**
-3. **Be as complete as possible, out-of-the-box.**
-4. **Maybe I'm getting old, but just gimme my editor, gimme my compiler and stay tf out my way!**
+1. **Improve terminal workflow.**
+2. **Improve source code editing & nav.**
+3. **Be as 'turn-key' as possible, without bloat.**
+   3.a?) **This is more a side-note rant than it is an actual point and maybe I'm getting old but I just want my editor, a simple config, gimme any random shitty c compiler and get off my front-porch.**
 
-At this point, I think it makes sense to quickly clarify what disqualified the vim family for me.The first issue with vim wasn’t even the learning curve. Neovim as a starting point almost felt like a must, as vanilla didn’t tick my boxes. But what really didn't float my boat is the NEED for additional tooling like tmux to name but just one.
-I mean, neovim is an entire IDE build around a stack of tools. It's like the terminal version of  visual studio. 
+At this point, I think it makes sense to quickly clarify what disqualified the 'vi'-m family for me, and sadly for vim fans, it wasn't the learning curve.
+See, neovim as a starting point is a must for just about anybody looking to change their workflow against my requirements. I don't mind a bit of tinkering to get my tooling right, but what really didn't float my boat was the *need* for that additional tooling, like tmux to name but just one. I mean, neovim is an entire IDE build around a fat stack of tools. It's like the terminal version of  visual studio.
+I get a special kind of headache everytime I think about the surface area of the shit-fan-target increasing in size. Adding neovim to the mix would be the equivalent of adding a monkey, to throw said shit, at a fan, blindfold in a white room and on cocaine.
 
-Of the endless text editors I had tried (and I must have tried no less than 10 to this point), I had put off emacs probably 3 or 4 times before I finally decided to give it a go, and from the outset it completely blew my mind. Here's why. 
+And of the endless text editors I had tried (and I must have tried no less than 10 to this point), every single one of them was the type where I had to strip it of it's default features, and add enough custom ones that I realized, after having put off emacs for 3rd or 4th time, that I was *essentially* trying to create a *simple version* of emacs-lite. Just not in emacs.It wasn't until my discovery of emacs - nothing from vim to neovim, helix, howl, geany, lite, scite or cudatext - had come so close to being so perfect right out of the gate with as little config (config at the end of article) as this ancient, absolute beast of an editor/ide.
 
-1. **Built-in Terminal Integration:** - without ever leaving emacs. 
-2. **Motions:** - keybindings with a 60% keyboard, are actually more efficient than vim for total-keystrokes made vs what you achieve. 
-3. **Mini Config:** - my `.emacs` file is just 10 LoC across win32, wsl2 and linux.
+It boils down to what I consider the 2 killer features of emacs, across win32, linux and wsl2. Out of the box, emacs provides (1) `compilation-mode` and (2) `dired`, which are by themselves complete game-changers for me and my needs.
 
-Out of the box, emacs provides features like `compilation-mode` and `dired` that completely changed my workflow to where I just can't see myself going back from:
+Within a few keystrokes I can run `.bat` or `.sh` build scripts directly from a buffer I quickly brought up, view compiler errors ***with syntax highlighting(!)*** and then just jump to the corresponding lines instantly by navigating there with the keys. Add to that quick nav of files, buffers manipulation, multiple windows. Emacs, rather than replace the traditional terminal workflow, organically enhances it in ways that just make sense.
+Although I still tend to use the eshell for git ops, magit looks like it'll be the third killer feature of emacs, once I learn and get it into my workflow. But again, it's the way emacs does it that's just too damn swaggy.
 
-- Within a few keystrokes I can run `.bat` or `.sh` scripts directly from emacs.
-- View compiler errors, with syntax highlighting, and jump to the corresponding lines instantly.
-- Navigate files, buffers, and multiple windows seemlessly, and extreemly quickly.
+I've seen the (e)light, and, speaking of which, have found emacs to be ***blazingly*** fast across windows wsl2 and linux. I had heard faint whispers of the editor being slow prior to using it myself, but never actually expected it to be as snappy as it is - although there should be no surpise there given emacs itself at it's core runs on a c engine. Might also be my lightweight config - which I shall share now without fruther ado:
 
-I no longer needed to open a separate terminal. Jumping around between compilation mode, dired file navigation, being able to jump quickly in and out of code for edits, or open up a new window/ buffer for those longer, grueling programming-sessions - it all works incredibly well. Even git ops. I tend to use the eshell for this, but something like magit could effortlessly be added and orgrnically add a ton of value to my workflow. 
+```lisp
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(column-number-mode 1)
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+(setq dired-listing-switches "-alh") ; Human-readable sizes
+(require 'dired-x) ; Extra Dired features
+;; delete selected text on text insert/ input
+(use-package delsel
+  :ensure nil 
+  :hook (after-init . delete-selection-mode))
+  
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(gruber-darker))
+ '(custom-safe-themes
+   '("e13beeb34b932f309fb2c360a04a460821ca99fe58f69e65557d6c1b10ba18c7" default))
+ '(package-selected-packages '(gruber-darker-theme ##)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+```
 
-So, I've seen the light. Looking alone at what it provides out of the box - compilation mode, dired - it's astonishing to me, and I simply haven't been able to replicate that workflow and process across any other text/terminal editor or IDE, and with as little as a 10 LoC config file to boot, out of the gate, that does it quite like emacs does it.
-
-A last, delightful suprize that occured to me. Maybe it's my tiny config and needs. But emacs is actually incredibly fast. There is no comparison to vscode, and I honestly don't think the vim fam is any quicker. Emacs is fast. Initial launch time on windows is quite bad, but its still a lot faster than vscode - and I must admit I'd have only noticed it because the linux versions of emacs launch in a split second.
-
-Yet, if there was anything neagative I would have to say about emacs, it could be succinctly summed up by my inital requirement. If an 'emacs-lite' came out tomorrow, offering all of the things emacs offers, out of the box, needing only 10 LoC of config - and left out 99% of the features of emacs I don't actually use - I would switch in a heartbeat.
+If there was one thing I would have to say about emacs, it could be succinctly summed up by my inital requirement.
+If an 'emacs-lite' came out tomorrow, offering all of the things emacs offers, out of the box, needing only that 20 LoC of config - and left out 99% of the features of emacs I don't actually use - I would switch in a heartbeat.
