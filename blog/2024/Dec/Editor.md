@@ -42,7 +42,7 @@ Although I still tend to use the eshell for git ops, magit looks like it'll be t
 
 I've seen the (e)light, and, speaking of which, have found emacs to be ***blazingly*** fast across windows wsl2 and linux. I had heard faint whispers of the editor being slow prior to using it myself, but never actually expected it to be as snappy as it is - although there should be no surpise there given emacs itself at it's core runs on a c engine. Might also be my lightweight config - which I shall share now without fruther ado:
 
-```lisp
+```
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
