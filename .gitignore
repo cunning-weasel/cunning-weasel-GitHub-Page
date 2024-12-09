@@ -1,5 +1,4 @@
 .vscode
-node_modules
 
 # ignore lock files created by Emacs
 .\#*
