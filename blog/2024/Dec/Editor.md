@@ -15,9 +15,9 @@ As if that wasn’t bad enough, it feels like every shitty-ass keystroke trigger
 
 I'm a simple man. I compile all my c code with a `build.bat` or `build.sh` script. Studpidly simple and fast, and so my resultant workflow looks something like: execute build script to compile, check compiler output/errors, jump into vscode to find and fix errors, then re-compile and run with debugger.
 
-This workflow slowed down considerably when jumping around source code files. I even often found myself quickly editng source code in micro - as at least this way I could quickly bring up some code, edit, and hop out back to terminal.
+This workflow slowed down considerably when jumping around source code files. I even often found myself quickly editng source code in micro - as at least this way I could quickly bring up some code, edit, and hop out back to terminal. This is bound to leave a sour taste in anyone's mouth, given the repetitivness of this worklow. Needing to jump out to another tool for quick editing is something I wanted to have built-in to my editor from the jump. 
 
-But this terminal output also starts to become harder to read, depending on compiler flags, and can include everything from errors in the win32 and linux header files themselves, to one's own code.
+And this terminal output also starts to become harder to read, depending on compiler flags, and can include everything from errors in the win32 and linux header files themselves, to one's own code.
 Sure, I could tweak configs, use Fish, or switch to Zsh for prettier output - but I didn't want extra dependencies and configs. Outside of aesthetics, these kinds of tweaks simply didn't bring any *real* value to my workflow. If anything, it just means more shit that needs to work across operating systems, and a bigger surface area of said shit to hit the fan. 
 
 Based on the above, my requirements start to look very simple. I ended up on one of either neovim or some other text editor I would have to wrangle to get to work to my needs. My pain points needed to be solved as directly and efficiently as possible:
@@ -35,9 +35,9 @@ And so, of the endless text editors I had tried, every single one of them requir
 It boils down to what I consider the 2 killer features of emacs. Out of the box, emacs provides (1) `compilation-mode` and (2) `dired`, which are by themselves complete game-changers if you've never used tools like them.
 
 Within a few keystrokes I can run `.bat` or `.sh` build scripts directly from a buffer I quickly brought up, view compiler errors ***with syntax highlighting(!)*** and then ***just jump to the corresponding lines instantly*** by navigating there with the keys. Add to that quick nav of files, buffers manipulation, multiple windows. Emacs, rather than replace the traditional terminal workflow, organically enhances it in ways that just make sense.
-Although I still tend to use the eshell for git ops, magit looks like it'll be the (3)rd killer feature to add to the list, once I learn it and get it into my daily workflow. But again, it's the way emacs does it. Just too damn swaggy.
+Although I still tend to use the eshell for git ops, magit looks like it'll be the (3)rd killer feature to add to the list, once I learn it and get it into my daily workflow. But again, it's the way emacs does it. Just too damn swaggy. Rizz off the charts. Stealing aura left and right fr fr. 
 
-I've seen the (e)light, and speaking of which, have found emacs to be ***blazingly*** fast, again, across windows, wsl2 and linux. I had heard faint whispers of the it being slow prior to using it myself, but never actually expected it to be as snappy as it is - although there should be no surpise there given at it's core is a c engine. Might also be my lightweight config - which I shall share now without fruther ado (`gruber-dark` theme incase you're interested btw):
+I've seen the (e)light, and speaking of which, have found emacs to be ***blazingly*** fast, again, across windows, wsl2 and linux. I had heard faint whispers of the it being slow prior to using it myself, but never actually expected it to be as snappy as it is - although there should be no surpise there given at it's core is a c engine. Might also be my lightweight config - which I shall share now without fruther ado:
 
 ```
 (tool-bar-mode 0)
@@ -46,12 +46,21 @@ I've seen the (e)light, and speaking of which, have found emacs to be ***blazing
 (column-number-mode 1)
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
-(setq dired-listing-switches "-alh") ; Human-readable sizes
-(require 'dired-x) ; Extra Dired features
-;; delete selected text on text insert/ input
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (c-set-style "bsd")      
+            (setq c-basic-offset 4)   
+            (electric-indent-mode -1) 
+            (c-set-offset 'substatement-open 0) 
+            (c-set-offset 'case-label '+)       
+            (c-set-offset 'statement-case-intro '+)
+            (local-set-key (kbd "RET") 'newline)))
 (use-package delsel
   :ensure nil 
   :hook (after-init . delete-selection-mode))
+(setq dired-listing-switches "-alh")
+(require 'dired-x)
+(load-theme 'gruber-darker t)
 ```
 
-If there was one thing I would have to say about emacs, it could be succinctly summed up by my inital requirement. If an 'emacs-lite' came out tomorrow, offering all of the things emacs offers, out of the box, needing only that 20 LoC of config - and left out 99% of the features of emacs I don't actually use - I would switch in a heartbeat.
+If there was one thing I would have to say about emacs, it could be succinctly summed up by my inital requirement. If an 'emacs-lite' came out tomorrow, offering all of the things emacs offers, out of the box, needing only that 21 LoC of config - and left out 99% of the features of emacs I don't actually use - I would switch in a heartbeat.
