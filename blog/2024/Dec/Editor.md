@@ -72,13 +72,21 @@ Folks, it's snappy AF - although there should be no surpise there given at it's 
 
 As mentioned, I really didn't need much with an ide/ editor, in so much as to address my pains points across win32 and linux. So having a lighter config really was a side-quest but an achievement nonetheless, as it's extreemly light. It doesn't such up a ton of app startup time and resources, it works across platforms and removes just enough default behaviour, while adding just enough custom in such a minimalistic, simple and reproductable way, that there really is no turning back for me, especially in regards to writing low-level c code like I love to. And so, without further ado, I shall share now my glorious config file, for your pleasure dear reader:
 
+```
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(column-number-mode 1)
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+
 (add-hook 'c-mode-common-hook
           (lambda ()
-            (c-set-style "bsd")       
-            (setq c-basic-offset 4)   
-            (electric-indent-mode -1) 
-            (c-set-offset 'substatement-open 0) 
-            (c-set-offset 'case-label '+)      
+            (c-set-style "bsd")      
+            (setq c-basic-offset 4)  
+            (electric-indent-mode -1)
+            (c-set-offset 'substatement-open 0)
+            (c-set-offset 'case-label '+)       
             (c-set-offset 'statement-case-intro '+) 
             (local-set-key (kbd "RET") 'newline)))
 
