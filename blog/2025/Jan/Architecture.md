@@ -41,6 +41,4 @@ Once I started thinking about software design principles in the later manner, a 
 
 Well. Not much else to say. So on that bombshell, I shall now leave you with a "xeet".
 
-> christina 死神
-> i don't really know how to articulate this but gamedev programmers are on an entire other level to non-games programmers
-> repeatedly needing to solve problems that have never existed before, because the world you're creating them in has never existed changes you as a person
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">i don&#39;t really know how to articulate this but gamedev programmers are on an entire other level to non-games programmers<br><br>repeatedly needing to solve problems that have never existed before, because the world you&#39;re creating them in has never existed changes you as a person</p>&mdash; christina 死神 (@chhopsky) <a href="https://twitter.com/chhopsky/status/1830327881760936157?ref_src=twsrc%5Etfw">September 1, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
