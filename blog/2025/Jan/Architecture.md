@@ -1,4 +1,4 @@
-## One of the biggest learnings I've taken from robust software architecture. 
+## One of the biggest learnings I've taken from robust software architecture 
 
 Software management and project discussions often circle around processes, milestones, delivering features on time, and the friction that arises when non-technical stakeholders are involved. But a recent realization reshaped my perspective on the role software architecture plays here: it isn't about following a predetermined map - it's about exploring the unknown with *intent* and *adaptability*. Here's why it matters. 
 
