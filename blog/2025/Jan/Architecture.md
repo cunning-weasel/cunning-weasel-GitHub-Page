@@ -57,10 +57,10 @@ Whenever I work on or with well architected software (shoutout memcache) it's:
 
 Phew. That was a mouthfull. Might be my longest blog article yet. Well. Not much else to say, so I shall now leave you with a "xeet" I lol'd at some time back:
 
-```i don't really know how to articulate this but gamedev programmers are on an entire other level to non-games programmers
+> i don't really know how to articulate this but gamedev programmers are on an entire other level to non-games programmers
+>
+> repeatedly needing to solve problems that have never existed before, because the world you're creating them in has never existed changes you as a person
 
-repeatedly needing to solve problems that have never existed before, because the world you're creating them in has never existed changes you as a person
-
-- christina 死神```
+> *christina 死神*
 
 And on that bombshell, goodnight folks! :)
