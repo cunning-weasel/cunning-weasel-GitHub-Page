@@ -42,25 +42,25 @@ I feeeeel you. So let me lay it out for y'all to play it out, from personal expe
 
 One of my past-projects was to develop a data interface. This needed to be a live PoC of how they could manage a bunch of data between multiple systems. The initial requirements suggested a standard REST api and sqlite. Through exploration of the problem domain, I found that the real need was processing thousands of data points simultaneously. Early prototying with revealed this, and so lead me to implement a message queue architecture. You know the type. Api rate limits and batches on the Db. Simple enough, and the cost of early pivot? About €6,000. The cost of a potential rewrite later? Easily €20,000+ and weeks of business disruption. Plus, my client got exactly what they needed the "first" time around.
 
-Here's a practical example from developing my game. Initially, I created a simple setup: a Win32 platform layer and a game engine layer, compiled into a single translation unit - just `#include`-ed them right in. However, as development progressed, I realized I needed a feature similar to vite or nodemon's hot-reload functionality — but with more sophisticated state management capabilities. 
-Thanks to my initial architecture choices, implementing hot-reloading was staggeringly straightforward. By compiling the game code as a DLL, I created a system that actually surpasses vite/nodemon's capabilities in many ways. This setup allows me to modify game code and data structures, compile changes, and see results instantly, all while maintaining precise control over game state with live looping. Had I chosen a different architectural approach, implementing this kind of dynamic development environment would have been *significantly* more challenging, if not practically impossible within a reasonable timeframe. I didn't even mention how I already included thread stub stucts and args to most of the code already. So when I need to, adding multi-threading will be a sinch. 
+Another example from developing my game. Initially, I created a simple setup: a win32 platform layer and a game engine layer, compiled into a single translation unit - just `#include`-ed them right in. However, as development progressed, I realized I needed a feature *similar* to vite or nodemon's hot-reload functionality — but with more sophisticated state management capabilities.
 
-Whenever I work on or with well architected software (shoutout memcache) it's:
+Thanks to my initial architecture choices, implementing hot-reloading was staggeringly straightforward. By compiling the game code as a DLL, I created a system that actually surpasses vite/nodemon's capabilities in pretty much every way. This setup allows me to modify game code and data structures, compile changes, and see results instantly, all while maintaining precise control over game state, with added live looping. Had I chosen a different architectural approach, implementing this kind of dynamic development environment would have been *significantly* more challenging, if not practically impossible within a reasonable timeframe. I haven't even touched on how I already included thread stub `structs` and `args` to most of the code already. So when I need to, adding multi-threading will be a sinch. It's all ready to go. Proper architecture for the win. 
 
-- Simple: Systems are easy to search, extend and maintain.
+ I don't wanna just blow my own horn here though. You and I both know, dear reader, that whenever you work on or with *well architected* software (shoutout to memcache) it's:
+
+- Simple: Systems are easy to search, extend and maintain. No grep, no step. 
 
 - Performant: Potential bottlenecks are identified early.
 
-- Robust: The entire system doesn't get worse when you add features. 
+- Robust: The entire system doesn't *get worse* when you add features (imagine that!). 
 
-- Less-debt: Technical debt is managed because decisions align with the *realities* of *the domain*.
+- Less-debt: Technical debt is managed because decisions align with the *realities* of *the domain*. 
 
-Phew. That was a mouthfull. Might be my longest blog article yet. Well. Not much else to say, so I shall now leave you with a "xeet" I lol'd at some time back:
+Phew. That was a mouthfull. Might be my longest blog article yet. Well. Not much else to say, so I shall now leave you with a "xeet" I lol'd at some time back which touches exactly on this type of thinking:
 
 > i don't really know how to articulate this but gamedev programmers are on an entire other level to non-games programmers
 >
 > repeatedly needing to solve problems that have never existed before, because the world you're creating them in has never existed changes you as a person
+> by *christina 死神*
 
-> *christina 死神*
-
-And on that bombshell, goodnight folks! :)
+So, on that bombshell, goodnight folks! :)

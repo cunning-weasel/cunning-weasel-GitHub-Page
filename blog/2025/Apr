@@ -1,0 +1,41 @@
+***A tale of AI, hot GPUs and cold coffee.*** 
+
+I, like many others, have both seen the potential, and enjoyed the benefits of AI over the last couple of months and gradually years.
+
+Hence (shoutout Mr. Masara), I fancy sharing a couple of my thoughts on using AI from the perspective of development work, for marketing work, and the actual process of developing the infra of said AI.
+
+While I can't share too much of my work because NDAs, I can touch on a few points around the vibe-coding mind virus, assistants assisting, and the hotness of this new tech - at least from the persective of how brands and agencies are likely to utilize the shiny new LLMs moving forward - from someone driving the implementation.
+
+But first thing's first, let's get some of the fear-mongering out of the way.
+
+- Yes, AI does help 'speed you up'.
+- Yes, its great a boiler-plate-y things.
+- Yes, AI will most likely be writing 90% of code in the future (probably already is tbh).
+
+These are all true.
+
+But like many things my friends, there is nuance to it.
+
+Whenver I sit down to write some code - and I'm sure many other developers can attest to this - the process of 'programming the computer' is about 90% bullshit (think requirements, architecture, mvps, stakeholders etc), while probably only 10% of time is actually code being written. As in, instructions actually being fed to the cpu.
+
+So by that entirely made-up, subjective stat, yes, 90% of code is probably already being written by AI. Because that 10% of actual code I mentioned? About 90% of that is just boilerplate.
+
+I hardly consider myself smart. Average at best, if I'm lucky. And even I can see that by sheer LoC, AI will probably be generating the majority of code. Because the majority of that code was boilerplate to begin with - something that was previously either generated, built, transpiled or just straight-up copy/pasted. Every. Damn. Time.
+
+What about that remaining 10% of that 90% that isn't boilerplate, of that 10% which is actually writing code, of that total time spent which isn't architecture or that other bullshit?
+
+That's where things get sticky, folks. Sticky-icky enough to the point that it feels like a super shitty version of a bloated IDE that offers no value to those who actually know what they want to get done, and need to get it done. I haven't tried windsurf or whatever those AI IDEs are called. I can't, yet, stomach the idea of adding yet more dependencies to what is already an incredibly fragile, dependent stack.
+
+I still don't know why I need to have a virtual python environment to install and manage those fuckin' bloody python dependencies. Jesus Christ, what is wrong with people. Why do I need conda or some bullshit for python to understand that I want to add a python module to it.
+
+Sigh. I digress.
+
+- Currently AI just isn't deterministic. Shit in != shit out, as it were.
+- Boilerplate (read: simple problems) that are well documented are easy enough to get the LLMs to spit out. Wanna do some complex things, in complex code that isn't quite like anything else out there? You're up shit's creek without a paddle. And there's a hole in the boat.
+- Instructions aren't being fed to the computer. You're generating code based on statistical probabilities. You're note programming a computer, you're interacting with a language model.
+
+Does this mean all AI is shit? Nah bruv.
+
+But if you choose to approach it with the nuance of a pre-pubescent teenager, then yes, vibe-coding is the future and we're fucked. Proper fucked.
+
+High-level overview? AI is an emmensly helpful tool. But a tool is all it is. And as they see, if all you can do is hammer, everything starts to look like a nail to you.
